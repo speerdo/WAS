@@ -32,6 +32,8 @@ const { title, description } = Astro.props;
     <!-- AOS Animation -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="/styles/custom.css">
+    <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+
   </head>
   <body class="bg-dark text-gray-100">
     <slot />
@@ -42,5 +44,6 @@ const { title, description } = Astro.props;
         once: true,
       });
     </script>
+    <script is:inline src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
   </body>
 </html>
