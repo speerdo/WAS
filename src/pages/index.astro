@@ -1,0 +1,155 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+
+const seoTitle = "Workflow Automation Strategies | Transforming Business Efficiency";
+const seoDescription = "Revolutionize your business operations with AI-powered workflow automation solutions. Increase productivity, reduce costs, and eliminate manual tasks with our cutting-edge automation strategies.";
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+  <Header />
+  
+  <!-- Hero Section -->
+  <section class="h-auto flex pt-24 max-w-5xl mx-auto items-center">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div data-aos="fade-right">
+          <h1 class="text-5xl md:text-6xl font-bold mb-6">
+            Transform Your <span class="text-primary">Workflow</span> with AI Automation
+          </h1>
+          <p class="text-xl text-gray-400 mb-8">
+            Streamline operations, boost productivity, and reduce costs with our intelligent automation solutions.
+          </p>
+          <div class="flex gap-4">
+            <a href="#contact" class="bg-primary hover:bg-secondary px-8 py-3 rounded-full text-lg font-semibold transition-colors">
+              Start Your Journey
+            </a>
+            <a href="#solutions" class="border border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-full text-lg font-semibold transition-all">
+              Learn More
+            </a>
+          </div>
+        </div>
+        <div data-aos="fade-left" class="hidden md:block">
+          <img src="https://images.unsplash.com/photo-1551434678-e076c223a692" alt="AI Automation" class="rounded-2xl shadow-2xl" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions Section -->
+  <section id="solutions" class="py-20 max-w-5xl mx-auto bg-slate-900">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-4xl font-bold mb-4">Our Solutions</h2>
+        <p class="text-xl text-gray-400">Comprehensive automation solutions for modern businesses</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        {[
+          {
+            title: "Process Automation",
+            description: "Automate repetitive tasks and workflows to increase efficiency",
+            image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            title: "AI Integration",
+            description: "Leverage artificial intelligence to make smarter business decisions",
+            image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            title: "Data Analytics",
+            description: "Transform raw data into actionable business insights",
+            image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+          }
+        ].map(solution => (
+          <div class="bg-slate-800 rounded-xl overflow-hidden" data-aos="fade-up">
+            <div class="h-48 overflow-hidden">
+              <img 
+                src={solution.image} 
+                alt={solution.title}
+                class="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-4">{solution.title}</h3>
+              <p class="text-gray-400">{solution.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section id="benefits" class="py-20 max-w-5xl mx-auto">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-4xl font-bold mb-4">Why Choose Us</h2>
+        <p class="text-xl text-gray-400">Experience the advantages of modern automation</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-12">
+        {[
+          {
+            title: "Increased Efficiency",
+            description: "Reduce manual work by up to 80% with automated workflows"
+          },
+          {
+            title: "Cost Reduction",
+            description: "Cut operational costs by eliminating redundant processes"
+          },
+          {
+            title: "Improved Accuracy",
+            description: "Minimize human error with precise automated systems"
+          },
+          {
+            title: "Scalable Solutions",
+            description: "Grow your automation capabilities as your business expands"
+          }
+        ].map(benefit => (
+          <div class="flex gap-4" data-aos="fade-up">
+            <div class="bg-primary p-3 h-fit rounded-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold mb-2">{benefit.title}</h3>
+              <p class="text-gray-400">{benefit.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="contact" class="py-20 bg-slate-900 max-w-5xl mx-auto">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+        <h2 class="text-4xl font-bold mb-6">Ready to Transform Your Business?</h2>
+        <p class="text-xl text-gray-400 mb-8">
+          Take the first step towards efficient, automated operations. Contact us today for a free consultation.
+        </p>
+        <form class="max-w-md mx-auto space-y-4">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 focus:border-primary focus:ring-2 focus:ring-primary focus:outline-none"
+          />
+          <button
+            type="submit"
+            class="w-full bg-primary hover:bg-secondary px-8 py-3 rounded-lg font-semibold transition-colors"
+          >
+            Get Started Now
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 border-t border-slate-800">
+    <div class="container mx-auto px-4 text-center text-gray-400">
+      <p>&copy; {new Date().getFullYear()} Workflow Automation Strategies. All rights reserved.</p>
+    </div>
+  </footer>
+</Layout>

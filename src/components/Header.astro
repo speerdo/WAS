@@ -1,0 +1,26 @@
+---
+const navItems = [
+  { text: 'Home', href: '#' },
+  { text: 'Solutions', href: '#solutions' },
+  { text: 'Benefits', href: '#benefits' },
+  { text: 'Contact', href: '#contact' },
+];
+---
+
+<header class="fixed w-full bg-dark/90 backdrop-blur-sm z-50">
+  <nav class="container mx-auto px-4 py-3">
+    <div class="flex items-center justify-between">
+      <div class="text-2xl font-bold text-primary">WAS</div>
+      <ul class="hidden md:flex space-x-8">
+        {navItems.map(item => (
+          <li>
+            <a href={item.href} class="hover:text-primary transition-colors">{item.text}</a>
+          </li>
+        ))}
+      </ul>
+      <a href="#contact" class="bg-primary hover:bg-secondary px-6 py-2 rounded-full transition-colors">
+        Get Started
+      </a>
+    </div>
+  </nav>
+</header>
