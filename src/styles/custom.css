@@ -1,0 +1,43 @@
+/* Custom CSS for the single page site */
+
+/* Custom Font Definitions */
+@font-face {
+  font-family: 'Syncopate';
+  src: url('/fonts/Syncopate-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/Lato-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Base Styles */
+body {
+  font-family: 'Lato', Arial, sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Headings using the Bold custom font */
+h1, h2, h3, h4, h5, h6, .h1 {
+  font-family: 'Syncopate', sans-serif;
+}
+
+/* Container for layout consistency */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Button and link transitions for better UX */
+a, button {
+  transition: background 0.3s, color 0.3s;
+}
