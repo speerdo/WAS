@@ -1,0 +1,20 @@
+---
+
+---
+
+<div id="scene-container" class="w-full h-full pointer-events-none" style="height: 500px;"></div>
+
+<script>
+  if (typeof window !== 'undefined') {
+    const container = document.getElementById('scene-container');
+    if (container) {
+      // Dynamically import the function
+      import('./futuristicSceneLogic.js').then(({ initFuturisticScene }) => {
+        const cleanup = initFuturisticScene(container);
+
+        // Cleanup on component unmount
+        document.addEventListener('astro:unmount', cleanup);
+      });
+    }
+  }
+</script>
