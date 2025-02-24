@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import FuturisticScene from '../components/FuturisticScene.astro';
+import LogoCarousel from '../components/LogoCarousel.astro';
 const seoTitle = "Workflow Automation Strategies | Transforming Business Efficiency";
 const seoDescription = "Revolutionize your business operations with AI-powered workflow automation solutions. Increase productivity, reduce costs, and eliminate manual tasks with our cutting-edge automation strategies.";
 ---
@@ -38,10 +39,10 @@ const seoDescription = "Revolutionize your business operations with AI-powered w
 
   <!-- Solutions Section -->
   <section id="solutions" class="py-20 max-w-5xl mx-auto bg-slate-900">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16" data-aos="fade-up">
+    <div class="container mx-auto px-4 mb-10">
+      <div class="text-center" data-aos="fade-up">
         <h2 class="text-4xl font-bold mb-4">Our Solutions</h2>
-        <p class="text-xl text-gray-400">Comprehensive automation solutions for modern businesses</p>
+        <p class="text-xl text-gray-400 mb-10">Comprehensive automation solutions for modern businesses</p>
       </div>
       <div class="grid md:grid-cols-3 gap-8">
         {[
@@ -79,6 +80,16 @@ const seoDescription = "Revolutionize your business operations with AI-powered w
     </div>
   </section>
 
+  <!-- Integrations Section -->
+  <section id="integrations" class="py-20 max-w-5xl mx-auto">
+    <div class="container mx-auto px-4">
+      <div class="text-center" data-aos="fade-up">
+        <h2 class="text-4xl font-bold mb-4">Integrations</h2>
+        <p class="text-xl text-gray-400 mb-10">We integrate with the best tools to automate your business</p>
+      </div>
+      <LogoCarousel />
+    </div>
+  </section>
   <!-- Benefits Section -->
   <section id="benefits" class="py-20 max-w-5xl mx-auto">
     <div class="container mx-auto px-4">

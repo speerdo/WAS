@@ -1,0 +1,68 @@
+<div class="logo-carousel-container bg-slate-900/50 py-12 mt-2">
+  <div class="logo-track flex animate-scroll">
+    <!-- First set of logos -->
+    <div class="flex items-center justify-around min-w-full gap-10 px-8">
+      <img src="/logos/zapier.svg" alt="Zapier" class="h-16 transition-all duration-300" />
+      <img src="/logos/make.svg" alt="Make.com" class="h-16 transition-all duration-300" />
+      <img src="/logos/n8n.svg" alt="n8n" class="h-16 transition-all duration-300" />
+      <img src="/logos/monday.svg" alt="Monday" class="h-16 transition-all duration-300" />
+      <img src="/logos/clickup.svg" alt="ClickUp" class="h-16 transition-all duration-300" />
+      <img src="/logos/openai.svg" alt="OpenAI" class="h-16 transition-all duration-300" />
+      <img src="/logos/miro.svg" alt="Miro" class="h-16 transition-all duration-300" />
+      <img src="/logos/airtable.svg" alt="Airtable" class="h-16 transition-all duration-300" />
+      <img src="/logos/asana.svg" alt="Asana" class="h-16 transition-all duration-300" />
+      <img src="/logos/wrike.svg" alt="Wrike" class="h-16 transition-all duration-300" />
+      <img src="/logos/notion.svg" alt="Notion" class="h-16 transition-all duration-300" />
+      <img src="/logos/teams.svg" alt="Teams" class="h-16 transition-all duration-300" />
+      <img src="/logos/slack.svg" alt="Slack" class="h-16 transition-all duration-300" />
+    </div>
+  </div>
+</div>
+
+<style>
+  .logo-carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .logo-track {
+    display: flex;
+    animation: scroll 30s linear infinite;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Pause animation on hover */
+  .logo-track:hover {
+    animation-play-state: paused;
+  }
+
+  /* Add gradient fade effect on edges */
+  .logo-carousel-container::before,
+  .logo-carousel-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100px;
+    z-index: 2;
+  }
+
+  .logo-carousel-container::before {
+    left: 0;
+    background: linear-gradient(to right, rgb(15 23 42 / 0.5), transparent);
+  }
+
+  .logo-carousel-container::after {
+    right: 0;
+    background: linear-gradient(to left, rgb(15 23 42 / 0.5), transparent);
+  }
+</style>
