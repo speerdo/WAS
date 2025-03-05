@@ -55,23 +55,23 @@ const seoDescription = "Revolutionize your business operations with AI-powered w
           {
             title: "Process Automation",
             description: "Automate repetitive tasks and workflows to increase efficiency",
-            image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?auto=format&fit=crop&w=800&q=80"
+            image: "/images/process.jpg"
           },
           {
             title: "AI Integration",
             description: "Leverage artificial intelligence to make smarter business decisions",
-            image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80"
+            image: "/images/ai.jpg"
           },
           {
             title: "Data Analytics",
             description: "Transform raw data into actionable business insights",
-            image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+            image: "/images/dashboard.jpg"
           }
         ].map(solution => (
           <div class="bg-slate-800 rounded-xl overflow-hidden" data-aos="fade-up">
             <div class="h-48 overflow-hidden">
               <img 
-                src={solution.image} 
+                src={solution.image}
                 alt={solution.title}
                 class="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
               />
@@ -169,7 +169,7 @@ const seoDescription = "Revolutionize your business operations with AI-powered w
   <!-- Footer -->
   <footer class="py-8 border-t border-slate-800">
     <div class="container mx-auto px-4 text-center text-gray-400">
-      <img src="/WAS-LOGO-HORIZ-ICON_FLAT.svg" alt="Workflow Automation Strategies logo" class="w-48 h-auto mx-auto mb-4" />
+      <img src="/images/WAS-LOGO-HORIZ-ICON_FLAT.svg" alt="Workflow Automation Strategies logo" class="w-48 h-auto mx-auto mb-4" />
       <p>&copy; {new Date().getFullYear()} Workflow Automation Strategies. All rights reserved.</p>
     </div>
   </footer>

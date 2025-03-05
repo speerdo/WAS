@@ -1,23 +1,77 @@
-<div class="logo-carousel-container bg-slate-900/50 py-12 mt-2">
-  <div class="logo-track flex animate-scroll">
-    <!-- First set of logos -->
-    <div class="flex items-center justify-around min-w-full gap-10 px-8">
-      <img src="/logos/zapier.svg" alt="Zapier" class="h-16 transition-all duration-300" />
-      <img src="/logos/make.svg" alt="Make.com" class="h-16 transition-all duration-300" />
-      <img src="/logos/n8n.svg" alt="n8n" class="h-16 transition-all duration-300" />
-      <img src="/logos/monday.svg" alt="Monday" class="h-16 transition-all duration-300" />
-      <img src="/logos/clickup.svg" alt="ClickUp" class="h-16 transition-all duration-300" />
-      <img src="/logos/openai.svg" alt="OpenAI" class="h-16 transition-all duration-300" />
-      <img src="/logos/miro.svg" alt="Miro" class="h-16 transition-all duration-300" />
-      <img src="/logos/airtable.svg" alt="Airtable" class="h-16 transition-all duration-300" />
-      <img src="/logos/asana.svg" alt="Asana" class="h-16 transition-all duration-300" />
-      <img src="/logos/wrike.svg" alt="Wrike" class="h-16 transition-all duration-300" />
-      <img src="/logos/notion.svg" alt="Notion" class="h-16 transition-all duration-300" />
-      <img src="/logos/teams.svg" alt="Teams" class="h-16 transition-all duration-300" />
-      <img src="/logos/slack.svg" alt="Slack" class="h-16 transition-all duration-300" />
+---
+// No imports needed for this approach
+---
+
+<div class="logo-carousel-container bg-slate-900/50 py-8 md:py-12 mt-2">
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <!-- Logo slides -->
+      <div class="swiper-slide"><img src="/logos/zapier.svg" alt="Zapier" class="h-10 md:h-16 mx-auto" /></div>
+      <div class="swiper-slide"><img src="/logos/make.svg" alt="Make.com" class="h-10 md:h-16 mx-auto" /></div>
+      <div class="swiper-slide"><img src="/logos/n8n.svg" alt="n8n" class="h-10 md:h-16 mx-auto" /></div>
+      <div class="swiper-slide"><img src="/logos/monday.svg" alt="Monday" class="h-10 md:h-16 mx-auto" /></div>
+      <div class="swiper-slide"><img src="/logos/clickup.svg" alt="ClickUp" class="h-10 md:h-16 mx-auto" /></div>
+      <div class="swiper-slide"><img src="/logos/openai.svg" alt="OpenAI" class="h-10 md:h-16 mx-auto" /></div>
+      <div class="swiper-slide"><img src="/logos/miro.svg" alt="Miro" class="h-10 md:h-16 mx-auto" /></div>
+      <div class="swiper-slide"><img src="/logos/airtable.svg" alt="Airtable" class="h-10 md:h-16 mx-auto" /></div>
+      <div class="swiper-slide"><img src="/logos/asana.svg" alt="Asana" class="h-10 md:h-16 mx-auto" /></div>
+      <div class="swiper-slide"><img src="/logos/wrike.svg" alt="Wrike" class="h-10 md:h-16 mx-auto" /></div>
+      <div class="swiper-slide"><img src="/logos/notion.svg" alt="Notion" class="h-10 md:h-16 mx-auto" /></div>
+      <div class="swiper-slide"><img src="/logos/teams.svg" alt="Teams" class="h-10 md:h-16 mx-auto" /></div>
+      <div class="swiper-slide"><img src="/logos/slack.svg" alt="Slack" class="h-10 md:h-16 mx-auto" /></div>
     </div>
   </div>
 </div>
+
+<script>
+  // Import Swiper and required modules
+  import Swiper from 'swiper';
+  import { Autoplay } from 'swiper/modules';
+  
+  // Import Swiper styles
+  import 'swiper/css';
+  
+  // Initialize Swiper
+  document.addEventListener('DOMContentLoaded', () => {
+    const swiper = new Swiper('.swiper-container', {
+      modules: [Autoplay],
+      slidesPerView: 2.5,
+      spaceBetween: 30,
+      loop: true,
+      speed: 5000, // Very slow transition for smooth scrolling
+      autoplay: {
+        delay: 0, // No delay between transitions
+        disableOnInteraction: false,
+      },
+      allowTouchMove: true, // Allow manual swiping
+      breakpoints: {
+        640: {
+          slidesPerView: 4,
+          spaceBetween: 40
+        },
+        768: {
+          slidesPerView: 5,
+          spaceBetween: 50
+        },
+        1024: {
+          slidesPerView: 6,
+          spaceBetween: 60
+        }
+      }
+    });
+    
+    // Pause on hover
+    const swiperContainer = document.querySelector('.swiper-container');
+    if (swiperContainer) {
+      swiperContainer.addEventListener('mouseenter', () => {
+        swiper.autoplay.stop();
+      });
+      swiperContainer.addEventListener('mouseleave', () => {
+        swiper.autoplay.start();
+      });
+    }
+  });
+</script>
 
 <style>
   .logo-carousel-container {
@@ -25,26 +79,24 @@
     overflow: hidden;
     position: relative;
   }
-
-  .logo-track {
+  
+  .swiper-container {
+    width: 100%;
+    padding: 0 1rem;
+  }
+  
+  .swiper-slide {
     display: flex;
-    animation: scroll 30s linear infinite;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+    transition: opacity 0.3s;
   }
-
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
+  
+  .swiper-slide:hover {
+    opacity: 1;
   }
-
-  /* Pause animation on hover */
-  .logo-track:hover {
-    animation-play-state: paused;
-  }
-
+  
   /* Add gradient fade effect on edges */
   .logo-carousel-container::before,
   .logo-carousel-container::after {
@@ -52,17 +104,25 @@
     position: absolute;
     top: 0;
     height: 100%;
-    width: 100px;
+    width: 5rem;
     z-index: 2;
+    pointer-events: none;
   }
-
+  
   .logo-carousel-container::before {
     left: 0;
     background: linear-gradient(to right, rgb(15 23 42 / 0.5), transparent);
   }
-
+  
   .logo-carousel-container::after {
     right: 0;
     background: linear-gradient(to left, rgb(15 23 42 / 0.5), transparent);
+  }
+  
+  @media (max-width: 768px) {
+    .logo-carousel-container::before,
+    .logo-carousel-container::after {
+      width: 3rem;
+    }
   }
 </style>
