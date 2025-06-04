@@ -1,0 +1,506 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const seoTitle = "Pricing | Workflow Automation Strategies - Transparent Automation Pricing";
+const seoDescription = "Clear, transparent pricing for workflow automation services. Project-based pricing from $1k-$2k and monthly retainer packages. Free consultation available.";
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+  <Header />
+  
+  <!-- Hero Section -->
+  <section class="h-auto flex pt-24 max-w-5xl mx-auto items-center relative overflow-hidden">
+    <!-- Animated background elements -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-20 left-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-20 right-10 w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div data-aos="fade-right">
+          <h1 class="text-4xl md:text-4xl font-bold mb-6">
+            Transparent <span class="text-primary">Pricing</span> for <span class="text-accent">Automation</span> Solutions
+          </h1>
+          <p class="text-xl text-gray-400 mb-8">
+            Clear, upfront pricing with no hidden fees. Choose the model that works best for your business needs and budget.
+          </p>
+          <div class="flex gap-4">
+            <a 
+              href="#pricing" 
+              class="bg-accent hover:bg-accent/80 text-white px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base md:text-md font-semibold transition-all transform hover:scale-105"
+            >
+              View Pricing
+            </a>
+            <a 
+              href="#consultation" 
+              class="border border-primary text-primary hover:bg-primary hover:text-white px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base md:text-md font-semibold transition-all"
+            >
+              Free Consultation
+            </a>
+          </div>
+        </div>
+        <div data-aos="fade-left" class="relative">
+          <div class="bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl p-8 backdrop-blur-sm border border-primary/20 relative overflow-hidden">
+            <!-- Accent decorations -->
+            <div class="absolute top-0 right-0 w-20 h-1 bg-accent"></div>
+            <div class="absolute bottom-0 left-0 w-20 h-1 bg-accent"></div>
+            
+            <div class="text-center">
+              <div class="text-3xl mb-4">💰</div>
+              <h3 class="text-xl font-bold mb-4">Investment Range</h3>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-300">Project Setup</span>
+                  <span class="text-accent font-semibold">$1k - $2k</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-300">Monthly Retainer</span>
+                  <span class="text-primary font-semibold">$1k - $2k</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-300">Consultation</span>
+                  <span class="text-secondary font-semibold">Free</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visual Divider -->
+  <div class="max-w-5xl mx-auto py-12">
+    <div class="flex items-center gap-4">
+      <div class="flex-1 h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+      <div class="flex-1 h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+    </div>
+  </div>
+
+  <!-- Pricing Models Overview -->
+  <section id="pricing" class="py-20 max-w-5xl mx-auto relative">
+    <!-- Background pattern -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute top-20 left-10 text-6xl text-primary">💼</div>
+      <div class="absolute bottom-40 right-20 text-6xl text-accent">📊</div>
+      <div class="absolute top-60 right-10 text-4xl text-secondary">⚡</div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-6 py-2 mb-4">
+          <span class="text-primary font-semibold">Pricing Models</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-4">Choose Your Automation Investment</h2>
+        <p class="text-xl text-gray-400">Flexible pricing options designed to fit your business needs and growth stage</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8 mb-20">
+        {[
+          {
+            icon: "🚀",
+            title: "Project-Based",
+            description: "One-time automation setup with complete implementation",
+            highlight: "Most Popular",
+            color: "accent"
+          },
+          {
+            icon: "📈",
+            title: "Monthly Retainer",
+            description: "Ongoing support, monitoring, and continuous improvements",
+            highlight: "Best Value",
+            color: "primary"
+          },
+          {
+            icon: "💬",
+            title: "Consultation",
+            description: "Free initial assessment or paid deep-dive strategy session",
+            highlight: "Get Started",
+            color: "secondary"
+          }
+        ].map((model, index) => (
+          <div class={`bg-slate-800 rounded-xl p-6 text-center border-t-4 border-${model.color} hover:transform hover:scale-105 transition-all group relative`} data-aos="fade-up" data-aos-delay={index * 200}>
+            <div class={`absolute -top-3 left-1/2 transform -translate-x-1/2 bg-${model.color} text-white px-3 py-1 rounded-full text-xs font-semibold`}>
+              {model.highlight}
+            </div>
+            <div class={`w-16 h-16 bg-${model.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform`}>
+              <span class="text-2xl">{model.icon}</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3">{model.title}</h3>
+            <p class="text-gray-400">{model.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Project-Based Pricing -->
+  <section class="py-20 bg-slate-900 max-w-5xl mx-auto relative overflow-hidden">
+    <!-- Animated grid background -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 25px 25px, #ff641e 2px, transparent 0); background-size: 50px 50px;"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-6 py-2 mb-4">
+          <span class="text-accent font-semibold">Project-Based Pricing</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-4">One-Time Automation Setup</h2>
+        <p class="text-xl text-gray-400">Custom quotes based on complexity and scope</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        {[
+          {
+            title: "Simple Integration",
+            price: "$1,000",
+            description: "Basic two-app connection with standard triggers and actions",
+            features: [
+              "Single workflow setup",
+              "2-3 app integrations",
+              "Basic data mapping",
+              "Testing & deployment",
+              "Documentation provided",
+              "30-day support included"
+            ],
+            color: "secondary",
+            popular: false
+          },
+          {
+            title: "Advanced Workflow",
+            price: "$1,500",
+            description: "Multi-step automation with conditional logic and data transformation",
+            features: [
+              "Complex workflow design",
+              "3-5 app integrations",
+              "Advanced data processing",
+              "Conditional logic & branching",
+              "Error handling & notifications",
+              "60-day support included"
+            ],
+            color: "accent",
+            popular: true
+          },
+          {
+            title: "Enterprise Solution",
+            price: "$2,000+",
+            description: "Custom development with AI integration and advanced features",
+            features: [
+              "Custom script development",
+              "AI/ML integration",
+              "Multiple complex workflows",
+              "Advanced security measures",
+              "Team training included",
+              "90-day support included"
+            ],
+            color: "primary",
+            popular: false
+          }
+        ].map((tier, index) => (
+          <div class={`bg-slate-800 rounded-xl p-8 border-2 ${tier.popular ? 'border-accent scale-105' : 'border-slate-700'} hover:transform hover:scale-105 transition-all group relative`} data-aos="fade-up" data-aos-delay={index * 200}>
+            {tier.popular && (
+              <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-accent text-white px-4 py-1 rounded-full text-sm font-semibold">
+                Most Popular
+              </div>
+            )}
+            <div class="text-center mb-6">
+              <h3 class={`text-2xl font-bold mb-2 text-${tier.color}`}>{tier.title}</h3>
+              <div class="text-4xl font-bold mb-2">{tier.price}</div>
+              <p class="text-gray-400 text-sm">{tier.description}</p>
+            </div>
+            <ul class="space-y-3 mb-8">
+              {tier.features.map((feature, featureIndex) => (
+                <li class="flex items-center gap-3">
+                  <div class={`w-2 h-2 bg-${tier.color} rounded-full`}></div>
+                  <span class="text-gray-300 text-sm">{feature}</span>
+                </li>
+              ))}
+            </ul>
+            <a
+              href="#consultation"
+              class={`w-full bg-${tier.color} hover:bg-${tier.color}/80 text-white px-6 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 block text-center`}
+            >
+              Get Quote
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Visual Divider -->
+  <div class="max-w-5xl mx-auto py-12">
+    <div class="flex items-center gap-4">
+      <div class="flex-1 h-px bg-gradient-to-r from-transparent via-accent to-transparent"></div>
+      <div class="flex-1 h-px bg-gradient-to-r from-transparent via-accent to-transparent"></div>
+    </div>
+  </div>
+
+  <!-- Monthly Retainer Packages -->
+  <section class="py-20 max-w-5xl mx-auto relative">
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-6 py-2 mb-4">
+          <span class="text-primary font-semibold">Monthly Retainer</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-4">Ongoing Automation Support</h2>
+        <p class="text-xl text-gray-400">Continuous monitoring, improvements, and priority support</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        {[
+          {
+            title: "Basic Plan",
+            price: "$1,000",
+            period: "per month",
+            description: "Perfect for maintaining and optimizing existing automations",
+            features: [
+              "Monitor up to 5 workflows",
+              "10 hours of development/month",
+              "Monthly optimization review",
+              "Email support (48hr response)",
+              "Performance reporting",
+              "Minor updates & fixes included"
+            ],
+            color: "primary",
+            popular: false
+          },
+          {
+            title: "Premium Plan",
+            price: "$1,500 - $2,000",
+            period: "per month",
+            description: "Comprehensive support with faster response times and more development hours",
+            features: [
+              "Monitor unlimited workflows",
+              "20-30 hours of development/month",
+              "Bi-weekly strategy sessions",
+              "Priority support (24hr response)",
+              "Advanced analytics & reporting",
+              "New automation development",
+              "Emergency support included"
+            ],
+            color: "accent",
+            popular: true
+          }
+        ].map((plan, index) => (
+          <div class={`bg-slate-800 rounded-xl p-8 border-2 ${plan.popular ? 'border-accent scale-105' : 'border-slate-700'} hover:transform hover:scale-105 transition-all group relative`} data-aos="fade-up" data-aos-delay={index * 200}>
+            {plan.popular && (
+              <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-accent text-white px-4 py-1 rounded-full text-sm font-semibold">
+                Best Value
+              </div>
+            )}
+            <div class="text-center mb-6">
+              <h3 class={`text-3xl font-bold mb-2 text-${plan.color}`}>{plan.title}</h3>
+              <div class="text-4xl font-bold mb-1">{plan.price}</div>
+              <p class="text-gray-400 text-sm mb-3">{plan.period}</p>
+              <p class="text-gray-400">{plan.description}</p>
+            </div>
+            <ul class="space-y-3 mb-8">
+              {plan.features.map((feature, featureIndex) => (
+                <li class="flex items-center gap-3">
+                  <div class={`w-2 h-2 bg-${plan.color} rounded-full`}></div>
+                  <span class="text-gray-300">{feature}</span>
+                </li>
+              ))}
+            </ul>
+            <a
+              href="#consultation"
+              class={`w-full bg-${plan.color} hover:bg-${plan.color}/80 text-white px-6 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 block text-center`}
+            >
+              Start Plan
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Proposition / ROI Section -->
+  <section class="py-20 bg-slate-900 max-w-5xl mx-auto relative">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 bg-secondary/10 border border-secondary/20 rounded-full px-6 py-2 mb-4">
+          <span class="text-secondary font-semibold">Return on Investment</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-4">Why Automation Pays for Itself</h2>
+        <p class="text-xl text-gray-400">The numbers speak for themselves</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div data-aos="fade-right">
+          <div class="bg-gradient-to-br from-accent/10 via-primary/5 to-secondary/10 rounded-2xl p-8 border border-accent/20">
+            <h3 class="text-2xl font-bold mb-6 text-accent">Average Business Savings</h3>
+            <div class="space-y-6">
+              <div class="flex items-center justify-between">
+                <span class="text-gray-300">Time Saved Weekly</span>
+                <span class="text-2xl font-bold text-accent">20+ Hours</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-gray-300">Error Reduction</span>
+                <span class="text-2xl font-bold text-primary">85%</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-gray-300">Process Speed Increase</span>
+                <span class="text-2xl font-bold text-secondary">300%</span>
+              </div>
+              <div class="border-t border-gray-600 pt-4">
+                <div class="flex items-center justify-between">
+                  <span class="text-gray-300 font-semibold">Monthly Labor Savings</span>
+                  <span class="text-3xl font-bold text-accent">$3,000+</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div data-aos="fade-left">
+          <h3 class="text-3xl font-bold mb-6 text-primary">Simple ROI Calculator</h3>
+          <div class="space-y-6">
+            <div class="bg-slate-800 rounded-xl p-6 border-l-4 border-accent">
+              <h4 class="text-xl font-semibold mb-3 text-accent">Scenario: Marketing Agency</h4>
+              <div class="text-gray-300 space-y-2">
+                <p><strong>Manual Process:</strong> 20 hours/week @ $25/hour = $500/week</p>
+                <p><strong>Monthly Cost:</strong> $2,000 in labor</p>
+                <p><strong>Automation Investment:</strong> $1,500 one-time</p>
+                <p><strong>Monthly Savings:</strong> $1,800 (90% reduction)</p>
+                <p class="text-accent font-semibold">Payback Period: Less than 1 month</p>
+              </div>
+            </div>
+            
+            <div class="bg-slate-800 rounded-xl p-6 border-l-4 border-primary">
+              <h4 class="text-xl font-semibold mb-3 text-primary">Additional Benefits</h4>
+              <ul class="text-gray-300 space-y-2">
+                <li>• Reduced human error and rework costs</li>
+                <li>• Faster response times to customers</li>
+                <li>• Team focus on high-value activities</li>
+                <li>• Scalability without proportional labor increase</li>
+                <li>• 24/7 automated processing capability</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Consultation Section -->
+  <section id="consultation" class="py-20 max-w-5xl mx-auto relative overflow-hidden">
+    <!-- Animated background -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-10 left-10 w-32 h-32 bg-primary/30 rounded-full blur-2xl animate-pulse"></div>
+      <div class="absolute bottom-10 right-10 w-40 h-40 bg-accent/30 rounded-full blur-2xl animate-pulse" style="animation-delay: 1s"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-6 py-2 mb-4">
+          <span class="text-accent font-semibold">Get Started</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-4">Start Your Automation Journey</h2>
+        <p class="text-xl text-gray-400 mb-8">
+          Choose the consultation option that works best for you
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+        <div class="bg-slate-800 rounded-xl p-8 border-2 border-secondary hover:transform hover:scale-105 transition-all group" data-aos="fade-up">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl">🆓</span>
+            </div>
+            <h3 class="text-2xl font-bold mb-2 text-secondary">Free Initial Consultation</h3>
+            <div class="text-3xl font-bold mb-2">$0</div>
+            <p class="text-gray-400">30-minute discovery call</p>
+          </div>
+          <ul class="space-y-3 mb-8">
+            {[
+              "Process assessment overview",
+              "Automation opportunity identification",
+              "High-level strategy discussion", 
+              "Custom pricing estimate",
+              "No obligation"
+            ].map((feature, index) => (
+              <li class="flex items-center gap-3">
+                <div class="w-2 h-2 bg-secondary rounded-full"></div>
+                <span class="text-gray-300">{feature}</span>
+              </li>
+            ))}
+          </ul>
+          <a
+            href="#contact"
+            class="w-full bg-secondary hover:bg-secondary/80 text-white px-6 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 block text-center"
+          >
+            Book Free Call
+          </a>
+        </div>
+        
+        <div class="bg-slate-800 rounded-xl p-8 border-2 border-accent hover:transform hover:scale-105 transition-all group" data-aos="fade-up">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl">🎯</span>
+            </div>
+            <h3 class="text-2xl font-bold mb-2 text-accent">Deep Dive Strategy Session</h3>
+            <div class="text-3xl font-bold mb-2">$150</div>
+            <p class="text-gray-400">90-minute comprehensive analysis</p>
+          </div>
+          <ul class="space-y-3 mb-8">
+            {[
+              "Complete process mapping",
+              "Detailed automation roadmap",
+              "ROI calculations & projections",
+              "Implementation timeline",
+              "Recorded session & documentation",
+              "Follow-up support included"
+            ].map((feature, index) => (
+              <li class="flex items-center gap-3">
+                <div class="w-2 h-2 bg-accent rounded-full"></div>
+                <span class="text-gray-300">{feature}</span>
+              </li>
+            ))}
+          </ul>
+          <a
+            href="#contact"
+            class="w-full bg-accent hover:bg-accent/80 text-white px-6 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 block text-center"
+          >
+            Book Strategy Session
+          </a>
+        </div>
+      </div>
+      
+      <div class="text-center" data-aos="fade-up">
+        <p class="text-gray-400 mb-6">
+          Ready to transform your business with automation? Let's discuss your specific needs and create a custom solution.
+        </p>
+        <form class="max-w-md mx-auto space-y-4 bg-slate-800 p-8 rounded-2xl border border-primary/20" action="https://api.web3forms.com/submit" method="POST" aria-label="Contact form">
+          <input type="hidden" name="access_key" value="96e6da2b-7be4-4320-9782-e3b525a20134" />
+          <input type="hidden" name="subject" value="Pricing Page Inquiry - WAS" />
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+            class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 focus:border-accent focus:ring-2 focus:ring-accent/50 focus:outline-none transition-colors"
+          />
+          <textarea
+            name="message"
+            placeholder="Tell us about your automation needs and budget..."
+            rows="4"
+            class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 focus:border-accent focus:ring-2 focus:ring-accent/50 focus:outline-none resize-none transition-colors"
+          ></textarea>
+          <button
+            type="submit"
+            class="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/80 hover:to-accent/80 px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 text-white"
+          >
+            Get Custom Quote
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout> 

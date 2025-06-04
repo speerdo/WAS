@@ -3,82 +3,201 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import FuturisticScene from '../components/FuturisticScene.astro';
 import LogoCarousel from '../components/LogoCarousel.astro';
-const seoTitle = "Workflow Automation Strategies | Transforming Business Efficiency";
-const seoDescription = "Revolutionize your business operations with AI-powered workflow automation solutions. Increase productivity, reduce costs, and eliminate manual tasks with our cutting-edge automation strategies.";
+import Footer from '../components/Footer.astro';
+const seoTitle = "Workflow Automation Strategies | AI-Powered Business Process Automation";
+const seoDescription = "Transform your business with expert workflow automation solutions. We help companies reduce costs by 40%, increase productivity by 60%, and eliminate manual tasks using Zapier, Make.com, n8n, and AI integration.";
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
   <Header />
   
   <!-- Hero Section -->
-  <section class="h-auto flex pt-24 max-w-5xl mx-auto items-center">
-    <div class="container mx-auto px-4">
-      <div class="grid md:grid-cols-2 gap-8 items-center">
+  <section class="h-auto flex pt-24 max-w-5xl mx-auto items-center relative overflow-hidden">
+    <!-- Animated background elements -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-20 left-10 w-64 h-64 bg-accent/20 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-20 right-10 w-80 h-80 bg-primary/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
         <div data-aos="fade-right">
-          <h1 class="text-4xl md:text-4xl font-bold mb-6">
-            Transform Your <span class="text-primary">Workflow</span> with AI Automation
+          <div class="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-6 py-2 mb-6">
+            <span class="text-accent font-semibold">🚀 AI-Powered Automation</span>
+          </div>
+          <h1 class="text-4xl md:text-5xl font-bold mb-6">
+            Transform Your <span class="text-primary">Business Operations</span> with <span class="text-accent">Intelligent Automation</span>
           </h1>
-          <p class="text-xl text-gray-400 mb-8">
-            Streamline operations, boost productivity, and reduce costs with our intelligent automation solutions.
+          <p class="text-xl text-gray-400 mb-6">
+            Reduce operational costs by 40%, increase productivity by 60%, and eliminate time-consuming manual tasks with our proven automation strategies.
           </p>
-          <div class="flex gap-4">
+          <div class="bg-slate-800/50 rounded-xl p-6 mb-8 border border-slate-700">
+            <div class="grid grid-cols-3 gap-4 text-center">
+              <div>
+                <div class="text-2xl font-bold text-accent">500+</div>
+                <div class="text-sm text-gray-400">Hours Saved Weekly</div>
+              </div>
+              <div>
+                <div class="text-2xl font-bold text-primary">40%</div>
+                <div class="text-sm text-gray-400">Cost Reduction</div>
+              </div>
+              <div>
+                <div class="text-2xl font-bold text-secondary">95%</div>
+                <div class="text-sm text-gray-400">Error Reduction</div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4">
             <a 
-              href="#contact" 
-              class="bg-primary hover:bg-secondary px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base md:text-md font-semibold transition-colors"
+              href="/contact" 
+              class="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/80 hover:to-accent px-8 py-3 rounded-full text-white font-semibold transition-all transform hover:scale-105 shadow-lg text-center"
             >
-              Start Your Journey
+              Start Your Automation Journey
             </a>
             <a 
-              href="#solutions" 
-              class="border border-primary text-primary hover:bg-primary hover:text-white px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base md:text-md font-semibold transition-all"
+              href="/case-studies" 
+              class="border border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-full font-semibold transition-all text-center"
             >
-              Learn More
+              View Success Stories
             </a>
           </div>
         </div>
-        <div data-aos="fade-left" class="h-full">
+        <div data-aos="fade-left" class="relative">
+          <div class="absolute top-0 right-0 w-20 h-1 bg-accent"></div>
+          <div class="absolute bottom-0 left-0 w-20 h-1 bg-accent"></div>
           <FuturisticScene />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Solutions Section -->
-  <section id="solutions" class="py-20 max-w-5xl mx-auto bg-slate-900">
-    <div class="container mx-auto px-4 mb-10">
-      <div class="text-center" data-aos="fade-up">
-        <h2 class="text-4xl font-bold mb-4">Our Solutions</h2>
-        <p class="text-xl text-gray-400 mb-10">Comprehensive automation solutions for modern businesses</p>
+  <!-- Visual Divider -->
+  <div class="max-w-5xl mx-auto py-12">
+    <div class="flex items-center gap-4">
+      <div class="flex-1 h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+      <div class="flex-1 h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+    </div>
+  </div>
+
+  <!-- Problem Statement Section -->
+  <section class="py-20 max-w-5xl mx-auto relative">
+    <!-- Background pattern -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute top-20 left-10 text-6xl text-primary">⚡</div>
+      <div class="absolute bottom-40 right-20 text-6xl text-accent">🎯</div>
+      <div class="absolute top-60 right-10 text-4xl text-secondary">🚀</div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-6 py-2 mb-4">
+          <span class="text-primary font-semibold">The Challenge</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-6">Are Manual Processes Holding Your Business Back?</h2>
+        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+          Most businesses lose 21% of their productivity to repetitive manual tasks. Data entry, email responses, report generation, and workflow approvals consume valuable time that could be spent on strategic growth initiatives.
+        </p>
       </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {[
+          {
+            icon: "⏰",
+            stat: "5+ hours",
+            description: "wasted daily on manual data entry and repetitive tasks",
+            color: "accent"
+          },
+          {
+            icon: "💸",
+            stat: "$75,000",
+            description: "annual cost per employee for manual processing inefficiencies",
+            color: "primary"
+          },
+          {
+            icon: "📈",
+            stat: "40%",
+            description: "of business processes can be fully automated with current technology",
+            color: "secondary"
+          },
+          {
+            icon: "🎯",
+            stat: "90%",
+            description: "error reduction achievable through intelligent automation",
+            color: "accent"
+          }
+        ].map((item, index) => (
+          <div class="bg-slate-800 rounded-xl p-6 text-center border-t-4 border-accent hover:transform hover:scale-105 transition-all group" data-aos="fade-up" data-aos-delay={index * 200}>
+            <div class="text-4xl mb-4">{item.icon}</div>
+            <div class={`text-2xl font-bold mb-2 text-${item.color}`}>{item.stat}</div>
+            <p class="text-gray-400 text-sm">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions Section -->
+  <section id="solutions" class="py-20 max-w-5xl mx-auto bg-gradient-to-br from-slate-900 to-slate-800 relative overflow-hidden">
+    <!-- Animated grid background -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 25px 25px, #ff641e 2px, transparent 0); background-size: 50px 50px;"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-6 py-2 mb-4">
+          <span class="text-accent font-semibold">Our Solutions</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-6">Comprehensive Automation Solutions for Modern Businesses</h2>
+        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+          We specialize in implementing cutting-edge automation technologies including Zapier, Make.com, n8n, and AI integration to transform your business operations.
+        </p>
+      </div>
+      
       <div class="grid md:grid-cols-3 gap-8">
         {[
           {
-            title: "Process Automation",
-            description: "Automate repetitive tasks and workflows to increase efficiency",
-            image: "/images/process.jpg"
+            title: "Workflow Process Automation",
+            description: "Streamline repetitive business processes with intelligent automation workflows that reduce manual work by up to 80%.",
+            features: ["Email automation", "Data synchronization", "Approval workflows", "Report generation"],
+            image: "/images/process.jpg",
+            accent: "primary"
           },
           {
-            title: "AI Integration",
-            description: "Leverage artificial intelligence to make smarter business decisions",
-            image: "/images/ai.jpg"
+            title: "AI-Powered Integration",
+            description: "Leverage artificial intelligence and machine learning to make smarter business decisions and automate complex tasks.",
+            features: ["Lead scoring", "Content generation", "Predictive analytics", "Intelligent routing"],
+            image: "/images/ai.jpg",
+            accent: "accent"
           },
           {
-            title: "Data Analytics",
-            description: "Transform raw data into actionable business insights",
-            image: "/images/dashboard.jpg"
+            title: "Business Intelligence & Analytics",
+            description: "Transform raw data into actionable business insights with automated reporting and real-time dashboard creation.",
+            features: ["Custom dashboards", "Automated reporting", "Data visualization", "Performance tracking"],
+            image: "/images/dashboard.jpg",
+            accent: "secondary"
           }
-        ].map(solution => (
-          <div class="bg-slate-800 rounded-xl overflow-hidden" data-aos="fade-up">
-            <div class="h-48 overflow-hidden">
+        ].map((solution, index) => (
+          <div class="bg-slate-800 rounded-xl overflow-hidden border border-accent/20 hover:transform hover:scale-105 transition-all group" data-aos="fade-up" data-aos-delay={index * 200}>
+            <div class="h-48 overflow-hidden relative">
+              <div class="absolute top-0 left-0 w-full h-1 bg-accent"></div>
               <img 
                 src={solution.image}
                 alt={solution.title}
-                class="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
             </div>
             <div class="p-6">
-              <h3 class="text-2xl font-bold mb-4">{solution.title}</h3>
-              <p class="text-gray-400">{solution.description}</p>
+              <h3 class="text-2xl font-bold mb-4 group-hover:text-accent transition-colors">{solution.title}</h3>
+              <p class="text-gray-400 mb-4">{solution.description}</p>
+              <ul class="space-y-2">
+                {solution.features.map(feature => (
+                  <li class="flex items-center gap-2 text-sm text-gray-300">
+                    <span class="text-accent">✓</span>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         ))}
@@ -86,52 +205,182 @@ const seoDescription = "Revolutionize your business operations with AI-powered w
     </div>
   </section>
 
-  <!-- Integrations Section -->
-  <section id="integrations" class="py-20 max-w-5xl mx-auto">
+  <!-- Technology Stack Section -->
+  <section class="py-20 max-w-5xl mx-auto">
     <div class="container mx-auto px-4">
-      <div class="text-center" data-aos="fade-up">
-        <h2 class="text-4xl font-bold mb-4">Integrations</h2>
-        <p class="text-xl text-gray-400 mb-10">We integrate with the best tools to automate your business</p>
+      <div class="text-center mb-16" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 bg-secondary/10 border border-secondary/20 rounded-full px-6 py-2 mb-4">
+          <span class="text-secondary font-semibold">Technology Stack</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-6">Powered by Industry-Leading Automation Platforms</h2>
+        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+          We partner with the best automation platforms to deliver robust, scalable solutions that grow with your business needs.
+        </p>
       </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        {[
+          {
+            name: "Zapier",
+            description: "6,000+ app integrations for seamless connectivity",
+            icon: "⚡",
+            color: "primary"
+          },
+          {
+            name: "Make.com",
+            description: "Visual workflow builder for complex automations",
+            icon: "🔧",
+            color: "accent"
+          },
+          {
+            name: "n8n",
+            description: "Open-source automation with unlimited customization",
+            icon: "🛠️",
+            color: "secondary"
+          },
+          {
+            name: "AI Integration",
+            description: "GPT-4, Claude, and custom AI model integration",
+            icon: "🤖",
+            color: "accent"
+          }
+        ].map((tech, index) => (
+          <div class="bg-slate-800 rounded-xl p-6 text-center border-l-4 border-accent hover:transform hover:scale-105 transition-all" data-aos="fade-up" data-aos-delay={index * 150}>
+            <div class="text-3xl mb-4">{tech.icon}</div>
+            <h3 class="text-lg font-bold mb-2">{tech.name}</h3>
+            <p class="text-gray-400 text-sm">{tech.description}</p>
+          </div>
+        ))}
+      </div>
+      
       <LogoCarousel />
     </div>
   </section>
+
   <!-- Benefits Section -->
-  <section id="benefits" class="py-20 max-w-5xl mx-auto">
-    <div class="container mx-auto px-4">
+  <section id="benefits" class="py-20 max-w-5xl mx-auto bg-slate-900 relative overflow-hidden">
+    <!-- Background decorative elements -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-10 left-10 w-32 h-32 bg-primary/30 rounded-full blur-2xl animate-pulse"></div>
+      <div class="absolute bottom-10 right-10 w-40 h-40 bg-accent/30 rounded-full blur-2xl animate-pulse" style="animation-delay: 1s"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
       <div class="text-center mb-16" data-aos="fade-up">
-        <h2 class="text-4xl font-bold mb-4">Why Choose Us</h2>
-        <p class="text-xl text-gray-400">Experience the advantages of modern automation</p>
+        <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-6 py-2 mb-4">
+          <span class="text-primary font-semibold">Business Impact</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-6">Proven Results That Transform Your Bottom Line</h2>
+        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+          Our automation solutions deliver measurable improvements across key business metrics, helping companies achieve sustainable growth and competitive advantages.
+        </p>
       </div>
+      
       <div class="grid md:grid-cols-2 gap-12">
         {[
           {
-            title: "Increased Efficiency",
-            description: "Reduce manual work by up to 80% with automated workflows"
+            title: "Operational Efficiency",
+            stat: "80%",
+            description: "Average reduction in manual work hours, freeing your team to focus on strategic initiatives and high-value activities that drive business growth.",
+            icon: "⚡",
+            color: "accent"
           },
           {
-            title: "Cost Reduction",
-            description: "Cut operational costs by eliminating redundant processes"
+            title: "Cost Optimization",
+            stat: "40%",
+            description: "Typical operational cost reduction through eliminated redundancies, improved resource allocation, and streamlined business processes.",
+            icon: "💰",
+            color: "primary"
           },
           {
-            title: "Improved Accuracy",
-            description: "Minimize human error with precise automated systems"
+            title: "Accuracy Improvement",
+            stat: "95%",
+            description: "Error reduction through automated data validation, consistent process execution, and elimination of human input mistakes.",
+            icon: "🎯",
+            color: "secondary"
           },
           {
-            title: "Scalable Solutions",
-            description: "Grow your automation capabilities as your business expands"
+            title: "Scalability Enhancement",
+            stat: "300%",
+            description: "Average capacity increase without proportional staff growth, enabling sustainable business expansion and improved service delivery.",
+            icon: "📈",
+            color: "accent"
           }
-        ].map(benefit => (
-          <div class="flex gap-4" data-aos="fade-up">
-            <div class="bg-primary p-3 h-fit rounded-lg">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
+        ].map((benefit, index) => (
+          <div class="flex gap-6 bg-slate-800/50 rounded-xl p-6 border border-slate-700" data-aos="fade-up" data-aos-delay={index * 200}>
+            <div class={`bg-gradient-to-br from-${benefit.color} to-${benefit.color}/80 p-4 h-fit rounded-lg text-2xl`}>
+              {benefit.icon}
             </div>
-            <div>
-              <h3 class="text-xl font-bold mb-2">{benefit.title}</h3>
-              <p class="text-gray-400">{benefit.description}</p>
+            <div class="flex-1">
+              <div class="flex items-center gap-4 mb-3">
+                <h3 class="text-xl font-bold">{benefit.title}</h3>
+                <span class={`text-3xl font-bold text-${benefit.color}`}>{benefit.stat}</span>
+              </div>
+              <p class="text-gray-400 leading-relaxed">{benefit.description}</p>
             </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Industry Expertise Section -->
+  <section class="py-20 max-w-5xl mx-auto">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-6 py-2 mb-4">
+          <span class="text-accent font-semibold">Industry Expertise</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-6">Specialized Automation Solutions by Industry</h2>
+        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+          We understand that different industries have unique challenges. Our automation strategies are tailored to address sector-specific requirements and compliance needs.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        {[
+          {
+            industry: "E-commerce & Retail",
+            applications: ["Order processing automation", "Inventory management", "Customer service workflows", "Marketing automation"],
+            icon: "🛒"
+          },
+          {
+            industry: "Healthcare & Medical",
+            applications: ["Patient data management", "Appointment scheduling", "Compliance reporting", "Insurance processing"],
+            icon: "🏥"
+          },
+          {
+            industry: "Financial Services",
+            applications: ["Document processing", "Compliance automation", "Client onboarding", "Risk assessment workflows"],
+            icon: "🏦"
+          },
+          {
+            industry: "Manufacturing",
+            applications: ["Supply chain automation", "Quality control processes", "Production scheduling", "Maintenance workflows"],
+            icon: "🏭"
+          },
+          {
+            industry: "Professional Services",
+            applications: ["Client management", "Project workflows", "Billing automation", "Document generation"],
+            icon: "💼"
+          },
+          {
+            industry: "Technology & SaaS",
+            applications: ["User onboarding", "Support automation", "Development workflows", "Performance monitoring"],
+            icon: "💻"
+          }
+        ].map((item, index) => (
+          <div class="bg-slate-800 rounded-xl p-6 border-t-4 border-accent hover:transform hover:scale-105 transition-all" data-aos="fade-up" data-aos-delay={index * 150}>
+            <div class="text-3xl mb-4">{item.icon}</div>
+            <h3 class="text-xl font-bold mb-4">{item.industry}</h3>
+            <ul class="space-y-2">
+              {item.applications.map(app => (
+                <li class="flex items-center gap-2 text-sm text-gray-300">
+                  <span class="text-accent">•</span>
+                  {app}
+                </li>
+              ))}
+            </ul>
           </div>
         ))}
       </div>
@@ -139,38 +388,95 @@ const seoDescription = "Revolutionize your business operations with AI-powered w
   </section>
 
   <!-- CTA Section -->
-  <section id="contact" class="py-20 bg-slate-900 max-w-5xl mx-auto">
-    <div class="container mx-auto px-4">
+  <section id="contact" class="py-20 bg-gradient-to-br from-slate-900 to-slate-800 max-w-5xl mx-auto relative overflow-hidden">
+    <!-- Background decorative elements -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-10 left-10 w-32 h-32 bg-accent/30 rounded-full blur-2xl animate-pulse"></div>
+      <div class="absolute bottom-10 right-10 w-40 h-40 bg-primary/30 rounded-full blur-2xl animate-pulse" style="animation-delay: 1s"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
       <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
-        <h2 class="text-4xl font-bold mb-6">Ready to Transform Your Business?</h2>
+        <div class="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-6 py-2 mb-6">
+          <span class="text-accent font-semibold">🚀 Start Your Transformation</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-6">Ready to Transform Your Business Operations?</h2>
         <p class="text-xl text-gray-400 mb-8">
-          Take the first step towards efficient, automated operations. Contact us today for a free consultation.
+          Join 500+ companies that have revolutionized their operations with our automation solutions. Get a free consultation and custom automation strategy tailored to your business needs.
         </p>
+        
+        <!-- Social proof -->
+        <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700 mb-8">
+          <div class="flex items-center justify-center gap-8 text-sm text-gray-400">
+            <div class="flex items-center gap-2">
+              <span class="text-accent">✓</span>
+              <span>Free 30-min consultation</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-accent">✓</span>
+              <span>Custom automation roadmap</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-accent">✓</span>
+              <span>No commitment required</span>
+            </div>
+          </div>
+        </div>
+        
         <form class="max-w-md mx-auto space-y-4" action="https://api.web3forms.com/submit" method="POST" aria-label="Contact form">
           <input type="hidden" name="access_key" value="96e6da2b-7be4-4320-9782-e3b525a20134" />
+          <input type="hidden" name="subject" value="New Homepage Consultation Request" />
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Enter your email"
-            class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 focus:border-primary focus:ring-2 focus:ring-primary focus:outline-none"
-          />
+          <div class="grid md:grid-cols-2 gap-4">
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              required
+              class="px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 focus:border-accent focus:ring-2 focus:ring-accent/50 focus:outline-none text-white"
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Business Email"
+              required
+              class="px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 focus:border-accent focus:ring-2 focus:ring-accent/50 focus:outline-none text-white"
+            />
+          </div>
+          
+          <select
+            name="company_size"
+            class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 focus:border-accent focus:ring-2 focus:ring-accent/50 focus:outline-none text-white"
+          >
+            <option value="">Company Size</option>
+            <option value="1-10">1-10 employees</option>
+            <option value="11-50">11-50 employees</option>
+            <option value="51-200">51-200 employees</option>
+            <option value="200+">200+ employees</option>
+          </select>
+          
+          <textarea
+            name="message"
+            placeholder="Tell us about your automation needs..."
+            rows="3"
+            class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 focus:border-accent focus:ring-2 focus:ring-accent/50 focus:outline-none text-white resize-none"
+          ></textarea>
+          
           <button
             type="submit"
-            class="w-full bg-primary hover:bg-secondary px-8 py-3 rounded-lg font-semibold transition-colors"
+            class="w-full bg-gradient-to-r from-accent to-accent/80 hover:from-accent/80 hover:to-accent px-8 py-4 rounded-lg font-semibold transition-all transform hover:scale-105 text-white text-lg shadow-lg hover:shadow-xl"
           >
-            Get Started Now
+            Get Your Free Automation Strategy
           </button>
         </form>
+        
+        <p class="text-gray-500 text-sm mt-4">
+          Or call us directly at <a href="tel:+1234567890" class="text-accent hover:text-accent/80">(123) 456-7890</a>
+        </p>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="py-8 border-t border-slate-800">
-    <div class="container mx-auto px-4 text-center text-gray-400">
-      <img src="/images/WAS-LOGO-HORIZ-ICON_FLAT.svg" alt="Workflow Automation Strategies logo" class="w-48 h-auto mx-auto mb-4" />
-      <p>&copy; {new Date().getFullYear()} Workflow Automation Strategies. All rights reserved.</p>
-    </div>
-  </footer>
+  <Footer />
 </Layout>

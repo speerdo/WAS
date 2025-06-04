@@ -1,0 +1,424 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const seoTitle = "Case Studies | Workflow Automation Strategies - Real Automation Success Stories";
+const seoDescription = "See how businesses save time and money with our workflow automation solutions. Real examples of Zapier, Make.com, and custom automation implementations.";
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+  <Header />
+  
+  <!-- Hero Section -->
+  <section class="h-auto flex pt-24 max-w-5xl mx-auto items-center relative overflow-hidden">
+    <!-- Animated background elements -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-20 right-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-20 left-10 w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div data-aos="fade-right">
+          <h1 class="text-4xl md:text-4xl font-bold mb-6">
+            Real <span class="text-primary">Automation</span> Success <span class="text-accent">Stories</span>
+          </h1>
+          <p class="text-xl text-gray-400 mb-8">
+            Discover how businesses like yours are saving time, reducing errors, and scaling their operations with smart automation solutions.
+          </p>
+          <div class="flex gap-4">
+            <a 
+              href="#case-studies" 
+              class="bg-accent hover:bg-accent/80 text-white px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base md:text-md font-semibold transition-all transform hover:scale-105"
+            >
+              View Case Studies
+            </a>
+            <a 
+              href="/contact" 
+              class="border border-primary text-primary hover:bg-primary hover:text-white px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base md:text-md font-semibold transition-all"
+            >
+              Start Your Project
+            </a>
+          </div>
+        </div>
+        <div data-aos="fade-left" class="relative">
+          <div class="bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl p-8 backdrop-blur-sm border border-primary/20 relative overflow-hidden">
+            <!-- Accent decorations -->
+            <div class="absolute top-0 left-0 w-20 h-1 bg-accent"></div>
+            <div class="absolute bottom-0 right-0 w-20 h-1 bg-accent"></div>
+            
+            <div class="text-center">
+              <div class="text-3xl mb-4">📊</div>
+              <h3 class="text-xl font-bold mb-4">Proven Results</h3>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-300">Average Time Saved</span>
+                  <span class="text-accent font-semibold">20+ hrs/week</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-300">Error Reduction</span>
+                  <span class="text-primary font-semibold">85%</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-300">ROI Timeline</span>
+                  <span class="text-secondary font-semibold">30-90 days</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visual Divider -->
+  <div class="max-w-5xl mx-auto py-12">
+    <div class="flex items-center gap-4">
+      <div class="flex-1 h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+      <div class="flex-1 h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+    </div>
+  </div>
+
+  <!-- Case Studies Overview -->
+  <section class="py-20 max-w-5xl mx-auto relative">
+    <!-- Background pattern -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute top-20 left-10 text-6xl text-primary">📈</div>
+      <div class="absolute bottom-40 right-20 text-6xl text-accent">🏆</div>
+      <div class="absolute top-60 right-10 text-4xl text-secondary">⚡</div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-6 py-2 mb-4">
+          <span class="text-primary font-semibold">Success Stories</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-4">Automation in Action</h2>
+        <p class="text-xl text-gray-400">Real examples of how automation transforms business operations</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8 mb-16">
+        {[
+          {
+            icon: "🎯",
+            title: "Marketing Agency",
+            subtitle: "Lead Management Revolution",
+            description: "From 5 hours/week to fully automated lead processing",
+            impact: "90% time savings",
+            color: "accent"
+          },
+          {
+            icon: "🛒",
+            title: "E-commerce Store",
+            subtitle: "Order Fulfillment Automation",
+            description: "Streamlined order-to-delivery process with real-time updates",
+            impact: "4x faster processing",
+            color: "primary"
+          },
+          {
+            icon: "💼",
+            title: "Consulting Firm",
+            subtitle: "Client Onboarding System",
+            description: "Automated client intake, contracts, and project setup",
+            impact: "3-day reduction",
+            color: "secondary"
+          }
+        ].map((overview, index) => (
+          <div class={`bg-slate-800 rounded-xl p-6 text-center border-t-4 border-${overview.color} hover:transform hover:scale-105 transition-all group`} data-aos="fade-up" data-aos-delay={index * 200}>
+            <div class={`w-16 h-16 bg-${overview.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform`}>
+              <span class="text-2xl">{overview.icon}</span>
+            </div>
+            <h3 class="text-lg font-bold mb-2">{overview.title}</h3>
+            <p class="text-gray-400 text-sm mb-3">{overview.subtitle}</p>
+            <p class="text-gray-300 text-sm mb-4">{overview.description}</p>
+            <div class={`bg-${overview.color}/20 rounded-lg px-3 py-2`}>
+              <span class={`text-${overview.color} font-semibold text-sm`}>{overview.impact}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study 1: Marketing Agency -->
+  <section id="case-studies" class="py-20 bg-slate-900 max-w-5xl mx-auto relative overflow-hidden">
+    <!-- Animated grid background -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 25px 25px, #ff641e 2px, transparent 0); background-size: 50px 50px;"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="mb-16" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-6 py-2 mb-4">
+          <span class="text-accent font-semibold">Case Study 1</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-4">Marketing Agency: Lead Management Revolution</h2>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        <div data-aos="fade-right">
+          <div class="bg-slate-800 rounded-xl p-8 border-l-4 border-accent mb-8">
+            <h3 class="text-2xl font-bold mb-4 text-accent">The Challenge</h3>
+            <p class="text-gray-300 mb-4">
+              <strong>Client:</strong> Digital marketing agency with 12 employees
+            </p>
+            <p class="text-gray-300 mb-4">
+              <strong>Problem:</strong> The agency was manually importing leads from their website contact forms into HubSpot CRM, then sending welcome emails by hand. This process took 5+ hours per week and often resulted in delayed responses or lost leads.
+            </p>
+            <p class="text-gray-300">
+              Manual steps included: downloading form submissions, data entry into CRM, creating follow-up tasks, sending personalized emails, and updating spreadsheet reports for management.
+            </p>
+          </div>
+        </div>
+        
+        <div data-aos="fade-left">
+          <div class="bg-slate-800 rounded-xl p-8 border-l-4 border-primary mb-8">
+            <h3 class="text-2xl font-bold mb-4 text-primary">The Solution</h3>
+            <p class="text-gray-300 mb-4">
+              We implemented a comprehensive automation using Zapier that instantly processes new leads through multiple systems:
+            </p>
+            <ul class="text-gray-300 space-y-2 mb-4">
+              <li>• Website form submissions automatically create HubSpot contacts</li>
+              <li>• Lead scoring assigns priority based on company size and budget</li>
+              <li>• Instant Slack notifications alert the sales team</li>
+              <li>• Personalized welcome emails sent within 5 minutes</li>
+              <li>• Follow-up tasks automatically scheduled in HubSpot</li>
+              <li>• Weekly summary reports generated in Google Sheets</li>
+            </ul>
+            <div class="bg-primary/10 rounded-lg p-4">
+              <p class="text-primary font-semibold mb-2">Tools Used:</p>
+              <p class="text-gray-300 text-sm">Zapier, HubSpot CRM, Slack, Gmail, Google Sheets, Website Forms</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-12" data-aos="fade-up">
+        <div class="bg-gradient-to-r from-accent/10 via-primary/5 to-secondary/10 rounded-2xl p-8 border border-accent/20">
+          <h3 class="text-2xl font-bold mb-6 text-accent">The Results</h3>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="text-center">
+              <div class="text-3xl font-bold text-accent mb-2">5 hours → 0 hours</div>
+              <p class="text-gray-400">Weekly time savings</p>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-primary mb-2">4x faster</div>
+              <p class="text-gray-400">Lead response time</p>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-secondary mb-2">23% increase</div>
+              <p class="text-gray-400">Lead conversion rate</p>
+            </div>
+          </div>
+          <div class="mt-6 pt-6 border-t border-gray-600">
+            <p class="text-gray-300">
+              <strong>Impact:</strong> The automation saves $650/month in staff time and increased lead conversion by 23% due to immediate follow-up. The agency estimates this generates an additional $3,200 monthly revenue from improved lead nurturing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visual Divider -->
+  <div class="max-w-5xl mx-auto py-12">
+    <div class="flex items-center gap-4">
+      <div class="flex-1 h-px bg-gradient-to-r from-transparent via-accent to-transparent"></div>
+      <div class="flex-1 h-px bg-gradient-to-r from-transparent via-accent to-transparent"></div>
+    </div>
+  </div>
+
+  <!-- Case Study 2: E-commerce Store -->
+  <section class="py-20 max-w-5xl mx-auto relative">
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="mb-16" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-6 py-2 mb-4">
+          <span class="text-primary font-semibold">Case Study 2</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-4">E-commerce Store: Order Fulfillment Automation</h2>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        <div data-aos="fade-right">
+          <div class="bg-slate-800 rounded-xl p-8 border-l-4 border-primary mb-8">
+            <h3 class="text-2xl font-bold mb-4 text-primary">The Challenge</h3>
+            <p class="text-gray-300 mb-4">
+              <strong>Client:</strong> Online specialty retailer processing 50-100 orders daily
+            </p>
+            <p class="text-gray-300 mb-4">
+              <strong>Problem:</strong> Order processing was completely manual - checking inventory, updating spreadsheets, sending confirmation emails, creating shipping labels, and notifying customers about delays. During busy periods, orders would take 2-3 days to process.
+            </p>
+            <p class="text-gray-300">
+              The team spent 3-4 hours daily on repetitive order management tasks, leading to delayed shipments and frustrated customers.
+            </p>
+          </div>
+        </div>
+        
+        <div data-aos="fade-left">
+          <div class="bg-slate-800 rounded-xl p-8 border-l-4 border-accent mb-8">
+            <h3 class="text-2xl font-bold mb-4 text-accent">The Solution</h3>
+            <p class="text-gray-300 mb-4">
+              We built a comprehensive automation system using Make.com that handles the entire order lifecycle:
+            </p>
+            <ul class="text-gray-300 space-y-2 mb-4">
+              <li>• New orders automatically sync from Shopify to inventory system</li>
+              <li>• Real-time inventory checks prevent overselling</li>
+              <li>• Order confirmation emails with tracking setup</li>
+              <li>• Automatic shipping label generation via ShipStation</li>
+              <li>• Customer notifications at each stage</li>
+              <li>• Low inventory alerts to purchasing team</li>
+              <li>• Daily sales reports with profit analysis</li>
+            </ul>
+            <div class="bg-accent/10 rounded-lg p-4">
+              <p class="text-accent font-semibold mb-2">Tools Used:</p>
+              <p class="text-gray-300 text-sm">Make.com, Shopify, ShipStation, Google Sheets, Klaviyo, QuickBooks</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-12" data-aos="fade-up">
+        <div class="bg-gradient-to-r from-primary/10 via-accent/5 to-secondary/10 rounded-2xl p-8 border border-primary/20">
+          <h3 class="text-2xl font-bold mb-6 text-primary">The Results</h3>
+          <div class="grid md:grid-cols-4 gap-6">
+            <div class="text-center">
+              <div class="text-3xl font-bold text-primary mb-2">75%</div>
+              <p class="text-gray-400">Faster processing</p>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-accent mb-2">20 hrs/week</div>
+              <p class="text-gray-400">Time saved</p>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-secondary mb-2">95%</div>
+              <p class="text-gray-400">Accuracy rate</p>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-primary mb-2">40%</div>
+              <p class="text-gray-400">Customer satisfaction increase</p>
+            </div>
+          </div>
+          <div class="mt-6 pt-6 border-t border-gray-600">
+            <p class="text-gray-300">
+              <strong>Impact:</strong> Order processing time dropped from 2-3 days to same-day. The store can now handle 200+ orders daily with the same team. Reduced processing errors by 95% and customer complaints by 60%. ROI: $2,400/month in labor savings.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study 3: Consulting Firm -->
+  <section class="py-20 bg-slate-900 max-w-5xl mx-auto relative">
+    <div class="container mx-auto px-4">
+      <div class="mb-16" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 bg-secondary/10 border border-secondary/20 rounded-full px-6 py-2 mb-4">
+          <span class="text-secondary font-semibold">Case Study 3</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-4">Consulting Firm: Client Onboarding System</h2>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        <div data-aos="fade-right">
+          <div class="bg-slate-800 rounded-xl p-8 border-l-4 border-secondary mb-8">
+            <h3 class="text-2xl font-bold mb-4 text-secondary">The Challenge</h3>
+            <p class="text-gray-300 mb-4">
+              <strong>Client:</strong> Management consulting firm with 8 consultants
+            </p>
+            <p class="text-gray-300 mb-4">
+              <strong>Problem:</strong> New client onboarding took 5-7 days and involved multiple manual steps: contract creation, project setup, team assignments, document sharing, and scheduling kickoff meetings. Important steps were often missed or delayed.
+            </p>
+            <p class="text-gray-300">
+              Each new client required 4-6 hours of administrative work, and the disjointed process created poor first impressions.
+            </p>
+          </div>
+        </div>
+        
+        <div data-aos="fade-left">
+          <div class="bg-slate-800 rounded-xl p-8 border-l-4 border-accent mb-8">
+            <h3 class="text-2xl font-bold mb-4 text-accent">The Solution</h3>
+            <p class="text-gray-300 mb-4">
+              We created an integrated onboarding system using n8n and various business tools:
+            </p>
+            <ul class="text-gray-300 space-y-2 mb-4">
+              <li>• Contract signed triggers automatic project creation</li>
+              <li>• Client portal setup with branded access</li>
+              <li>• Team notification and resource allocation</li>
+              <li>• Automated welcome sequence with next steps</li>
+              <li>• Calendar scheduling for kickoff meetings</li>
+              <li>• Project tracking setup in Monday.com</li>
+              <li>• Invoice scheduling in QuickBooks</li>
+            </ul>
+            <div class="bg-secondary/10 rounded-lg p-4">
+              <p class="text-secondary font-semibold mb-2">Tools Used:</p>
+              <p class="text-gray-300 text-sm">n8n, DocuSign, Monday.com, Google Workspace, Calendly, QuickBooks, Slack</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-12" data-aos="fade-up">
+        <div class="bg-gradient-to-r from-secondary/10 via-primary/5 to-accent/10 rounded-2xl p-8 border border-secondary/20">
+          <h3 class="text-2xl font-bold mb-6 text-secondary">The Results</h3>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="text-center">
+              <div class="text-3xl font-bold text-secondary mb-2">7 days → 1 day</div>
+              <p class="text-gray-400">Onboarding time</p>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-accent mb-2">85%</div>
+              <p class="text-gray-400">Admin time reduction</p>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-primary mb-2">100%</div>
+              <p class="text-gray-400">Process consistency</p>
+            </div>
+          </div>
+          <div class="mt-6 pt-6 border-t border-gray-600">
+            <p class="text-gray-300">
+              <strong>Impact:</strong> New clients are now fully onboarded in 24 hours with perfect consistency. The firm saves 32 hours monthly on admin work, allowing consultants to focus on billable activities. Client satisfaction scores improved by 35%.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Next Steps CTA -->
+  <section class="py-20 max-w-5xl mx-auto relative overflow-hidden">
+    <!-- Animated background -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-10 left-10 w-32 h-32 bg-accent/30 rounded-full blur-2xl animate-pulse"></div>
+      <div class="absolute bottom-10 right-10 w-40 h-40 bg-primary/30 rounded-full blur-2xl animate-pulse" style="animation-delay: 1s"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-6 py-2 mb-6">
+          <span class="text-primary font-semibold">Ready to Get Started?</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-6">Your Success Story Starts Here</h2>
+        <p class="text-xl text-gray-400 mb-8">
+          Every business has unique automation opportunities. Let's discuss how we can create a custom solution that delivers similar results for your organization.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/contact"
+            class="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/80 hover:to-accent px-8 py-4 rounded-lg font-semibold transition-all transform hover:scale-105 text-white"
+          >
+            Start Your Project
+          </a>
+          <a
+            href="/pricing"
+            class="border border-primary text-primary hover:bg-primary hover:text-white px-8 py-4 rounded-lg font-semibold transition-all"
+          >
+            View Pricing
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout> 
