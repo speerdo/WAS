@@ -36,6 +36,7 @@ async function getStaticPages(): Promise<SitemapEntry[]> {
     { path: '/pricing', priority: 0.8, changefreq: 'monthly' as const },
     { path: '/faq', priority: 0.7, changefreq: 'monthly' as const },
     { path: '/contact', priority: 0.8, changefreq: 'monthly' as const },
+    { path: '/privacy-policy', priority: 0.5, changefreq: 'yearly' as const },
   ];
 
   // Get current date for lastmod
