@@ -1,12 +1,11 @@
 import type { APIRoute } from 'astro';
-import { readdir, readFile, stat } from 'fs/promises';
+import { stat } from 'fs/promises';
 import { join } from 'path';
-import matter from 'gray-matter';
+import { getCollection } from 'astro:content';
 
 // Site configuration
 const SITE_URL = 'https://workflowautomationstrategies.com'; // Update with your actual domain
 const PAGES_DIR = join(process.cwd(), 'src/pages');
-const CONTENT_DIR = join(process.cwd(), 'src/content/blog');
 
 interface SitemapEntry {
   url: string;
@@ -79,37 +78,23 @@ async function getStaticPages(): Promise<SitemapEntry[]> {
   return pages;
 }
 
-// Get all blog posts
+// Get all blog posts using content collections
 async function getBlogPosts(): Promise<SitemapEntry[]> {
   const posts: SitemapEntry[] = [];
 
   try {
-    const files = await readdir(CONTENT_DIR);
-    const markdownFiles = files.filter((file) => file.endsWith('.md'));
+    const blogEntries = await getCollection('blog');
 
-    for (const file of markdownFiles) {
-      try {
-        const filePath = join(CONTENT_DIR, file);
-        const fileContent = await readFile(filePath, 'utf-8');
-        const { data: frontmatter } = matter(fileContent);
-        const stats = await stat(filePath);
+    for (const entry of blogEntries) {
+      const publishDate = entry.data.publishDate;
+      const lastModified = publishDate;
 
-        const slug = file.replace('.md', '');
-        const publishDate = frontmatter.publishDate
-          ? new Date(frontmatter.publishDate)
-          : stats.mtime;
-        const lastModified =
-          stats.mtime > publishDate ? stats.mtime : publishDate;
-
-        posts.push({
-          url: `${SITE_URL}/blog/${slug}`,
-          lastmod: lastModified.toISOString().split('T')[0],
-          changefreq: 'monthly',
-          priority: 0.7,
-        });
-      } catch (error) {
-        console.warn(`Error processing blog post ${file}:`, error);
-      }
+      posts.push({
+        url: `${SITE_URL}/blog/${entry.id}`,
+        lastmod: lastModified.toISOString().split('T')[0],
+        changefreq: 'monthly',
+        priority: 0.7,
+      });
     }
 
     // Sort by date (newest first) for better crawling
@@ -117,7 +102,7 @@ async function getBlogPosts(): Promise<SitemapEntry[]> {
       (a, b) => new Date(b.lastmod).getTime() - new Date(a.lastmod).getTime()
     );
   } catch (error) {
-    console.warn('Error reading blog directory:', error);
+    console.warn('Error reading blog collection:', error);
   }
 
   return posts;
