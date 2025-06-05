@@ -12,7 +12,7 @@ const blog = defineCollection({
       'Marketing Automation',
       'Best Practices',
     ]),
-    publishDate: z.coerce.date(),
+    publishDate: z.string(),
     readTime: z.string(),
     featured: z.boolean().default(false),
     image: z.string(),

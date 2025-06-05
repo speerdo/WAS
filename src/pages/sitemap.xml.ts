@@ -86,7 +86,7 @@ async function getBlogPosts(): Promise<SitemapEntry[]> {
     const blogEntries = await getCollection('blog');
 
     for (const entry of blogEntries) {
-      const publishDate = entry.data.publishDate;
+      const publishDate = new Date(entry.data.publishDate);
       const lastModified = publishDate;
 
       posts.push({

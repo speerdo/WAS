@@ -39,7 +39,7 @@ const seoDescription = entry.data.seoDescription || entry.data.excerpt;
           )}
         </h1>
         <div class="flex items-center justify-center gap-6 text-gray-400 text-sm">
-          <span>📅 {entry.data.publishDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+          <span>📅 {new Date(entry.data.publishDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
           <span>⏱️ {entry.data.readTime}</span>
           <span>{entry.data.image} {entry.data.category}</span>
         </div>
