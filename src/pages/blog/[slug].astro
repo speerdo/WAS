@@ -2,72 +2,21 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import { readdir, readFile } from 'fs/promises';
-import { join } from 'path';
-import matter from 'gray-matter';
+import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
-  const contentDir = join(process.cwd(), 'src/content/blog');
-  const files = await readdir(contentDir);
-  const markdownFiles = files.filter(file => file.endsWith('.md'));
-  
-  const paths = markdownFiles.map(file => ({
-    params: { slug: file.replace('.md', '') }
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map(entry => ({
+    params: { slug: entry.id },
+    props: { entry },
   }));
-  
-  return paths;
 }
 
-const { slug } = Astro.params;
+const { entry } = Astro.props;
+const { Content } = await render(entry);
 
-// Read the markdown file
-const contentPath = join(process.cwd(), 'src/content/blog', `${slug}.md`);
-const fileContent = await readFile(contentPath, 'utf-8');
-const { data: frontmatter, content } = matter(fileContent);
-
-// Convert markdown to HTML (basic conversion)
-function markdownToHtml(markdown) {
-  return markdown
-    // Headers
-    .replace(/^### (.*$)/gim, '<h3 class="text-xl font-bold mb-4 mt-8 text-accent">$1</h3>')
-    .replace(/^## (.*$)/gim, '<h2 class="text-2xl font-bold mb-6 mt-10 text-primary">$1</h2>')
-    .replace(/^# (.*$)/gim, '<h1 class="text-3xl font-bold mb-6 mt-8">$1</h1>')
-    
-    // Bold and italic
-    .replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-white">$1</strong>')
-    .replace(/\*(.*?)\*/g, '<em class="italic">$1</em>')
-    
-    // Links
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-accent hover:text-accent/80 underline transition-colors">$1</a>')
-    
-    // Code blocks
-    .replace(/```([^`]+)```/gs, '<pre class="bg-slate-700 rounded-lg p-4 my-6 overflow-x-auto"><code class="text-gray-300 text-sm">$1</code></pre>')
-    .replace(/`([^`]+)`/g, '<code class="bg-slate-700 px-2 py-1 rounded text-accent text-sm">$1</code>')
-    
-    // Lists
-    .replace(/^\- (.*$)/gim, '<li class="mb-2">$1</li>')
-    .replace(/(<li.*<\/li>)/gs, '<ul class="list-disc list-inside mb-6 text-gray-300 space-y-2">$1</ul>')
-    
-    // Tables
-    .replace(/\|([^|\n]+)\|/g, (match, content) => {
-      const cells = content.split('|').map(cell => cell.trim()).filter(cell => cell);
-      return '<tr>' + cells.map(cell => `<td class="border border-slate-600 px-4 py-2">${cell}</td>`).join('') + '</tr>';
-    })
-    .replace(/(<tr>.*<\/tr>)/gs, '<table class="w-full border-collapse border border-slate-600 my-6 bg-slate-800 rounded-lg overflow-hidden">$1</table>')
-    
-    // Paragraphs
-    .replace(/^(?!<[h|u|p|t|l])(.*$)/gim, '<p class="mb-6 text-gray-300 leading-relaxed">$1</p>')
-    
-    // Clean up extra paragraph tags around other elements
-    .replace(/<p[^>]*>(<[h|u|t|l][^>]*>.*?<\/[h|u|t|l][^>]*>)<\/p>/gs, '$1')
-    .replace(/<p[^>]*>(<pre>.*?<\/pre>)<\/p>/gs, '$1')
-    .replace(/<p[^>]*>(<div[^>]*>.*?<\/div>)<\/p>/gs, '$1');
-}
-
-const htmlContent = markdownToHtml(content);
-
-const seoTitle = frontmatter.seoTitle || frontmatter.title;
-const seoDescription = frontmatter.seoDescription || frontmatter.excerpt;
+const seoTitle = entry.data.seoTitle || entry.data.title;
+const seoDescription = entry.data.seoDescription || entry.data.excerpt;
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
@@ -78,21 +27,21 @@ const seoDescription = frontmatter.seoDescription || frontmatter.excerpt;
     <div class="container mx-auto px-4">
       <div class="text-center mb-8" data-aos="fade-up">
         <div class="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-6 py-2 mb-4">
-          <span class="text-accent font-semibold">{frontmatter.category}</span>
+          <span class="text-accent font-semibold">{entry.data.category}</span>
         </div>
         <h1 class="text-4xl md:text-5xl font-bold mb-6">
-          {frontmatter.title.includes(':') ? (
+          {entry.data.title.includes(':') ? (
             <>
-              {frontmatter.title.split(':')[0]}: <span class="text-accent">{frontmatter.title.split(':')[1]}</span>
+              {entry.data.title.split(':')[0]}: <span class="text-accent">{entry.data.title.split(':')[1]}</span>
             </>
           ) : (
-            frontmatter.title
+            entry.data.title
           )}
         </h1>
         <div class="flex items-center justify-center gap-6 text-gray-400 text-sm">
-          <span>📅 {new Date(frontmatter.publishDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
-          <span>⏱️ {frontmatter.readTime}</span>
-          <span>{frontmatter.image} {frontmatter.category}</span>
+          <span>📅 {new Date(entry.data.publishDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+          <span>⏱️ {entry.data.readTime}</span>
+          <span>{entry.data.image} {entry.data.category}</span>
         </div>
       </div>
       
@@ -101,7 +50,7 @@ const seoDescription = frontmatter.seoDescription || frontmatter.excerpt;
         <div class="absolute bottom-0 right-0 w-20 h-1 bg-accent"></div>
         
         <p class="text-xl text-gray-300 leading-relaxed">
-          {frontmatter.excerpt}
+          {entry.data.excerpt}
         </p>
       </div>
     </div>
@@ -111,7 +60,9 @@ const seoDescription = frontmatter.seoDescription || frontmatter.excerpt;
   <section class="py-12 max-w-4xl mx-auto">
     <div class="container mx-auto px-4">
       <article class="prose prose-lg max-w-none">
-        <div class="blog-content" set:html={htmlContent}></div>
+        <div class="blog-content">
+          <Content />
+        </div>
       </article>
     </div>
   </section>
@@ -127,7 +78,7 @@ const seoDescription = frontmatter.seoDescription || frontmatter.excerpt;
     <div class="container mx-auto px-4 relative z-10">
       <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
         <!-- Category-specific CTA content -->
-        {frontmatter.category === 'How-to Guides' ? (
+        {entry.data.category === 'How-to Guides' ? (
           <>
             <div class="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-6 py-2 mb-6">
               <span class="text-accent font-semibold">🚀 Ready to Implement?</span>
@@ -137,7 +88,7 @@ const seoDescription = frontmatter.seoDescription || frontmatter.excerpt;
               Skip the trial and error. Our automation experts can implement this solution for you in days, not weeks.
             </p>
           </>
-        ) : frontmatter.category === 'Tool Comparisons' ? (
+        ) : entry.data.category === 'Tool Comparisons' ? (
           <>
             <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-6 py-2 mb-6">
               <span class="text-primary font-semibold">🎯 Make the Right Choice</span>
@@ -147,7 +98,7 @@ const seoDescription = frontmatter.seoDescription || frontmatter.excerpt;
               Get a personalized recommendation based on your specific business needs and technical requirements.
             </p>
           </>
-        ) : frontmatter.category === 'Industry Insights' ? (
+        ) : entry.data.category === 'Industry Insights' ? (
           <>
             <div class="inline-flex items-center gap-2 bg-secondary/10 border border-secondary/20 rounded-full px-6 py-2 mb-6">
               <span class="text-secondary font-semibold">💡 Ready to Transform?</span>
@@ -157,7 +108,7 @@ const seoDescription = frontmatter.seoDescription || frontmatter.excerpt;
               Get a custom automation strategy designed specifically for your industry and business model.
             </p>
           </>
-        ) : frontmatter.category === 'Marketing Automation' ? (
+        ) : entry.data.category === 'Marketing Automation' ? (
           <>
             <div class="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-6 py-2 mb-6">
               <span class="text-accent font-semibold">📈 Boost Your Marketing</span>
@@ -260,53 +211,53 @@ const seoDescription = frontmatter.seoDescription || frontmatter.excerpt;
     line-height: 1.7;
   }
   
-  .blog-content h1,
-  .blog-content h2,
-  .blog-content h3,
-  .blog-content h4 {
+  .blog-content :global(h1),
+  .blog-content :global(h2),
+  .blog-content :global(h3),
+  .blog-content :global(h4) {
     margin-top: 2rem;
     margin-bottom: 1rem;
     font-weight: bold;
   }
   
-  .blog-content h2 {
+  .blog-content :global(h2) {
     color: #3b82f6;
     font-size: 1.75rem;
     border-bottom: 2px solid #ff641e;
     padding-bottom: 0.5rem;
   }
   
-  .blog-content h3 {
+  .blog-content :global(h3) {
     color: #ff641e;
     font-size: 1.25rem;
   }
   
-  .blog-content p {
+  .blog-content :global(p) {
     margin-bottom: 1.5rem;
     color: #cbd5e1;
   }
   
-  .blog-content ul,
-  .blog-content ol {
+  .blog-content :global(ul),
+  .blog-content :global(ol) {
     margin: 1.5rem 0;
     padding-left: 1.5rem;
   }
   
-  .blog-content ul {
+  .blog-content :global(ul) {
     list-style-type: disc;
   }
   
-  .blog-content li {
+  .blog-content :global(li) {
     margin-bottom: 0.5rem;
     color: #cbd5e1;
   }
   
-  .blog-content strong {
+  .blog-content :global(strong) {
     color: #f8fafc;
     font-weight: 600;
   }
   
-  .blog-content code {
+  .blog-content :global(code) {
     background-color: #374151;
     color: #ff641e;
     padding: 0.25rem 0.5rem;
@@ -314,7 +265,7 @@ const seoDescription = frontmatter.seoDescription || frontmatter.excerpt;
     font-size: 0.875rem;
   }
   
-  .blog-content pre {
+  .blog-content :global(pre) {
     background-color: #374151;
     padding: 1.5rem;
     border-radius: 0.5rem;
@@ -322,13 +273,13 @@ const seoDescription = frontmatter.seoDescription || frontmatter.excerpt;
     margin: 1.5rem 0;
   }
   
-  .blog-content pre code {
+  .blog-content :global(pre code) {
     background: none;
     color: #d1d5db;
     padding: 0;
   }
   
-  .blog-content table {
+  .blog-content :global(table) {
     width: 100%;
     border-collapse: collapse;
     margin: 1.5rem 0;
@@ -337,29 +288,29 @@ const seoDescription = frontmatter.seoDescription || frontmatter.excerpt;
     overflow: hidden;
   }
   
-  .blog-content th,
-  .blog-content td {
+  .blog-content :global(th),
+  .blog-content :global(td) {
     border: 1px solid #475569;
     padding: 0.75rem 1rem;
     text-align: left;
   }
   
-  .blog-content th {
+  .blog-content :global(th) {
     background-color: #334155;
     font-weight: 600;
     color: #ff641e;
   }
   
-  .blog-content a {
+  .blog-content :global(a) {
     color: #ff641e;
     text-decoration: underline;
   }
   
-  .blog-content a:hover {
+  .blog-content :global(a:hover) {
     color: #e55a1a;
   }
   
-  .blog-content blockquote {
+  .blog-content :global(blockquote) {
     border-left: 4px solid #ff641e;
     background-color: #1e293b;
     padding: 1rem 1.5rem;

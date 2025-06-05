@@ -2,62 +2,20 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import { readdir, readFile } from 'fs/promises';
-import { join } from 'path';
-import matter from 'gray-matter';
+import { getCollection } from 'astro:content';
 
 const seoTitle = "Automation Blog | Workflow Automation Strategies - Expert Tips & Tutorials";
 const seoDescription = "Expert insights on workflow automation, tool comparisons, how-to guides, and industry best practices. Learn about Zapier, Make.com, n8n, and AI automation.";
 
-// Define blog post type
-interface BlogPost {
-  slug: string;
-  title: string;
-  excerpt: string;
-  category: string;
-  readTime: string;
-  publishDate: string;
-  featured: boolean;
-  image: string;
-  seoTitle?: string;
-  seoDescription?: string;
-}
+// Get blog posts from content collections
+const allBlogPosts = await getCollection('blog');
 
-// Read blog posts from markdown files
-async function getBlogPosts(): Promise<BlogPost[]> {
-  const contentDir = join(process.cwd(), 'src/content/blog');
-  const files = await readdir(contentDir);
-  const markdownFiles = files.filter(file => file.endsWith('.md'));
-  
-  const posts = await Promise.all(
-    markdownFiles.map(async (file): Promise<BlogPost> => {
-      const filePath = join(contentDir, file);
-      const fileContent = await readFile(filePath, 'utf-8');
-      const { data: frontmatter } = matter(fileContent);
-      
-      return {
-        slug: file.replace('.md', ''),
-        title: frontmatter.title || '',
-        excerpt: frontmatter.excerpt || '',
-        category: frontmatter.category || '',
-        readTime: frontmatter.readTime || '',
-        publishDate: frontmatter.publishDate || '',
-        featured: frontmatter.featured || false,
-        image: frontmatter.image || '',
-        seoTitle: frontmatter.seoTitle,
-        seoDescription: frontmatter.seoDescription
-      };
-    })
-  );
-  
-  // Sort by publish date (newest first)
-  return posts.sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime());
-}
+// Sort by publish date (newest first)
+const blogPosts = allBlogPosts.sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime());
 
-const blogPosts = await getBlogPosts();
-const categories = [...new Set(blogPosts.map(post => post.category))];
-const featuredPosts = blogPosts.filter(post => post.featured);
-const recentPosts = blogPosts.filter(post => !post.featured);
+const categories = [...new Set(blogPosts.map(post => post.data.category))];
+const featuredPosts = blogPosts.filter(post => post.data.featured);
+const recentPosts = blogPosts.filter(post => !post.data.featured);
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
@@ -72,7 +30,7 @@ const recentPosts = blogPosts.filter(post => !post.featured);
     </div>
     
     <div class="container mx-auto px-4 relative z-10">
-      <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div data-aos="fade-right">
           <h1 class="text-4xl md:text-4xl font-bold mb-6">
             <span class="text-primary">Automation</span> Insights & <span class="text-accent">Expert</span> Guides
@@ -165,7 +123,7 @@ const recentPosts = blogPosts.filter(post => !post.featured);
             </div>
             <h3 class="text-lg font-bold mb-3">{category}</h3>
             <p class="text-gray-400 text-sm mb-4">
-              {blogPosts.filter(post => post.category === category).length} articles
+              {blogPosts.filter(post => post.data.category === category).length} articles
             </p>
             <a
               href={`#${category.toLowerCase().replace(/\s+/g, '-')}`}
@@ -200,18 +158,18 @@ const recentPosts = blogPosts.filter(post => !post.featured);
           <article class="bg-slate-800 rounded-xl overflow-hidden border border-accent/20 hover:transform hover:scale-105 transition-all group" data-aos="fade-up" data-aos-delay={index * 200}>
             <div class="p-6">
               <div class="flex items-center justify-between mb-4">
-                <span class="text-3xl">{post.image}</span>
+                <span class="text-3xl">{post.data.image}</span>
                 <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-xs font-semibold">
-                  {post.category}
+                  {post.data.category}
                 </span>
               </div>
               <h3 class="text-xl font-bold mb-3 group-hover:text-accent transition-colors">
-                <a href={`/blog/${post.slug}`}>{post.title}</a>
+                <a href={`/blog/${post.id}`}>{post.data.title}</a>
               </h3>
-              <p class="text-gray-400 text-sm mb-4">{post.excerpt}</p>
+              <p class="text-gray-400 text-sm mb-4">{post.data.excerpt}</p>
               <div class="flex items-center justify-between text-gray-500 text-xs">
-                <span>{new Date(post.publishDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
-                <span>{post.readTime}</span>
+                <span>{new Date(post.data.publishDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                <span>{post.data.readTime}</span>
               </div>
             </div>
           </article>
@@ -235,24 +193,24 @@ const recentPosts = blogPosts.filter(post => !post.featured);
         {recentPosts.map((post, index) => (
           <article class="bg-slate-800 rounded-xl p-6 border-l-4 border-primary hover:transform hover:scale-105 transition-all group" data-aos="fade-up" data-aos-delay={index * 150}>
             <div class="flex items-start gap-4">
-              <div class="text-2xl">{post.image}</div>
+              <div class="text-2xl">{post.data.image}</div>
               <div class="flex-1">
                 <div class="flex items-center gap-2 mb-2">
                   <span class="bg-primary/20 text-primary px-2 py-1 rounded text-xs font-semibold">
-                    {post.category}
+                    {post.data.category}
                   </span>
-                  <span class="text-gray-500 text-xs">{post.readTime}</span>
+                  <span class="text-gray-500 text-xs">{post.data.readTime}</span>
                 </div>
                 <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">
-                  <a href={`/blog/${post.slug}`}>{post.title}</a>
+                  <a href={`/blog/${post.id}`}>{post.data.title}</a>
                 </h3>
-                <p class="text-gray-400 text-sm mb-3">{post.excerpt}</p>
+                <p class="text-gray-400 text-sm mb-3">{post.data.excerpt}</p>
                 <div class="flex items-center justify-between">
                   <span class="text-gray-500 text-xs">
-                    {new Date(post.publishDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                    {new Date(post.data.publishDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                   </span>
                   <a 
-                    href={`/blog/${post.slug}`}
+                    href={`/blog/${post.id}`}
                     class="text-primary hover:text-primary/80 font-semibold text-sm transition-colors"
                   >
                     Read More →
@@ -267,35 +225,41 @@ const recentPosts = blogPosts.filter(post => !post.featured);
   </section>
 
   <!-- Newsletter CTA -->
-  <section class="py-20 bg-slate-900 max-w-5xl mx-auto relative overflow-hidden">
-    <!-- Animated background -->
+  <section class="py-20 bg-gradient-to-br from-slate-900 to-slate-800 max-w-5xl mx-auto relative overflow-hidden">
+    <!-- Background decorative elements -->
     <div class="absolute inset-0 opacity-10">
-      <div class="absolute top-10 left-10 w-32 h-32 bg-primary/30 rounded-full blur-2xl animate-pulse"></div>
-      <div class="absolute bottom-10 right-10 w-40 h-40 bg-accent/30 rounded-full blur-2xl animate-pulse" style="animation-delay: 1s"></div>
+      <div class="absolute top-10 left-10 w-32 h-32 bg-accent/30 rounded-full blur-2xl animate-pulse"></div>
+      <div class="absolute bottom-10 right-10 w-40 h-40 bg-primary/30 rounded-full blur-2xl animate-pulse" style="animation-delay: 1s"></div>
     </div>
     
     <div class="container mx-auto px-4 relative z-10">
       <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
         <div class="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-6 py-2 mb-6">
-          <span class="text-accent font-semibold">Stay Updated</span>
+          <span class="text-accent font-semibold">📧 Stay Updated</span>
         </div>
-        <h2 class="text-4xl font-bold mb-6">Never Miss an Automation Tip</h2>
-        <p class="text-xl text-gray-400 mb-8">
-          Get our latest tutorials, tool comparisons, and automation strategies delivered to your inbox.
+        <h2 class="text-4xl font-bold mb-6">Never Miss an Automation Insight</h2>
+        <p class="text-xl text-gray-300 mb-8">
+          Get our latest tutorials, tool reviews, and industry insights delivered straight to your inbox.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-          <input
-            type="email"
-            placeholder="Enter your email"
-            class="flex-1 px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 focus:border-accent focus:ring-2 focus:ring-accent/50 focus:outline-none text-white"
-          />
-          <button
-            class="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/80 hover:to-accent px-6 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 text-white whitespace-nowrap"
-          >
-            Subscribe
-          </button>
+        
+        <div class="bg-slate-800/50 rounded-xl p-8 border border-slate-700">
+          <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+            <input
+              type="email"
+              placeholder="Enter your email address"
+              class="flex-1 px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-white placeholder-gray-400 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
+            >
+            <button
+              type="submit"
+              class="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/80 hover:to-accent px-6 py-3 rounded-lg font-semibold transition-all text-white shadow-lg hover:shadow-xl"
+            >
+              Subscribe Now
+            </button>
+          </form>
+          <p class="text-gray-400 text-sm mt-4">
+            Join 500+ automation enthusiasts. Unsubscribe at any time.
+          </p>
         </div>
-        <p class="text-gray-500 text-sm mt-4">No spam, unsubscribe anytime.</p>
       </div>
     </div>
   </section>
