@@ -1,28 +1,202 @@
 ---
 const navItems = [
-  { text: 'Home', href: '#' },
-  { text: 'Solutions', href: '#solutions' },
-  { text: 'Benefits', href: '#benefits' },
-  { text: 'Contact', href: '#contact' },
+  { text: 'Home', href: '/' },
+  { text: 'About', href: '/about' },
+  { text: 'Services', href: '/services' },
+  { text: 'Case Studies', href: '/case-studies' },
+  { text: 'Blog', href: '/blog' },
+  { text: 'Pricing', href: '/pricing' },
+  { text: 'FAQ', href: '/faq' },
 ];
 ---
 
-<header class="fixed w-full bg-dark/90 backdrop-blur-sm z-50">
+<header class="fixed w-full bg-dark/90 backdrop-blur-sm z-50 border-b border-slate-700/50">
   <nav class="container mx-auto px-4">
     <div class="flex items-center justify-between py-3">
-      <div class="text-2xl font-bold text-primary h1">
+      <!-- Logo -->
+      <div class="text-2xl font-bold text-primary h1 z-20 relative">
         <img src="/images/WAS-LOGO_HORIZ_FLAT.svg" alt="Workflow Automation Strategies logo" class="w-48 h-auto" />
       </div>
-      <ul class="hidden md:flex space-x-8">
+      
+      <!-- Desktop Navigation -->
+      <ul class="hidden lg:flex space-x-8">
         {navItems.map(item => (
           <li>
-            <a href={item.href} class="hover:text-primary transition-colors">{item.text}</a>
+            <a href={item.href} class="hover:text-primary transition-colors font-medium">{item.text}</a>
           </li>
         ))}
       </ul>
-      <a href="#contact" class="bg-primary hover:bg-secondary px-6 py-2 rounded-full transition-colors">
+      
+      <!-- Desktop CTA Button -->
+      <a href="/contact" class="hidden md:block bg-gradient-to-r from-accent to-accent/80 hover:from-accent/80 hover:to-accent px-6 py-2 rounded-full transition-all font-semibold transform hover:scale-105">
         Get Started
       </a>
+      
+      <!-- Mobile Menu Button -->
+      <button 
+        id="mobile-menu-button" 
+        class="lg:hidden z-20 relative w-10 h-10 flex flex-col justify-center items-center space-y-1.5 group"
+        aria-label="Toggle mobile menu"
+      >
+        <span class="w-6 h-0.5 bg-white transition-all duration-300 group-hover:bg-accent" id="hamburger-line-1"></span>
+        <span class="w-6 h-0.5 bg-white transition-all duration-300 group-hover:bg-accent" id="hamburger-line-2"></span>
+        <span class="w-6 h-0.5 bg-white transition-all duration-300 group-hover:bg-accent" id="hamburger-line-3"></span>
+      </button>
     </div>
   </nav>
+  
+  <!-- Mobile Menu Overlay -->
+  <div 
+    id="mobile-menu-overlay" 
+    class="fixed inset-0 bg-black/50 backdrop-blur-sm z-10 lg:hidden opacity-0 invisible transition-all duration-300"
+  ></div>
+  
+  <!-- Mobile Menu -->
+  <div 
+    id="mobile-menu" 
+    class="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-slate-900/95 backdrop-blur-md border-l-2 border-slate-600 z-15 lg:hidden transform translate-x-full transition-transform duration-300 ease-in-out shadow-2xl"
+  >
+    <!-- Mobile Menu Header -->
+    <div class="flex items-center justify-between p-6 border-b-2 border-slate-600 bg-slate-800">
+      <h3 class="text-xl font-bold text-white">Menu</h3>
+      <button 
+        id="mobile-menu-close"
+        class="w-10 h-10 flex items-center justify-center rounded-lg bg-slate-700 hover:bg-slate-600 transition-colors group"
+        aria-label="Close mobile menu"
+      >
+        <svg class="w-6 h-6 text-gray-300 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu Content -->
+    <div class="flex flex-col h-full bg-slate-900 border-l border-slate-700">
+      <!-- Navigation Links -->
+      <nav class="flex-1 py-6 bg-slate-900">
+        <ul class="space-y-2">
+          {navItems.map(item => (
+            <li>
+              <a 
+                href={item.href} 
+                class="flex items-center px-6 py-4 text-lg font-medium text-gray-300 hover:text-white hover:bg-slate-800 transition-all duration-200 border-l-4 border-transparent hover:border-accent group mobile-menu-link"
+              >
+                <span class="group-hover:translate-x-1 transition-transform duration-200">{item.text}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      
+      <!-- Mobile CTA Section -->
+      <div class="p-6 border-t-2 border-slate-600 bg-slate-800">
+        <a 
+          href="/contact" 
+          class="w-full bg-gradient-to-r from-accent to-accent/80 hover:from-accent/80 hover:to-accent px-6 py-4 rounded-lg font-semibold transition-all transform hover:scale-105 text-center block text-white shadow-lg"
+        >
+          Get Started Today
+        </a>
+        
+        <!-- Contact Info -->
+        <div class="mt-4 text-center">
+          <p class="text-gray-400 text-sm mb-2">Need immediate help?</p>
+          <a href="tel:+1234567890" class="text-accent hover:text-accent/80 font-medium">(123) 456-7890</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </header>
+
+<script>
+  // Mobile menu functionality
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenuClose = document.getElementById('mobile-menu-close');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+  const hamburgerLine1 = document.getElementById('hamburger-line-1');
+  const hamburgerLine2 = document.getElementById('hamburger-line-2');
+  const hamburgerLine3 = document.getElementById('hamburger-line-3');
+  const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+  
+  let isMenuOpen = false;
+  
+  function toggleMobileMenu() {
+    isMenuOpen = !isMenuOpen;
+    
+    if (isMenuOpen) {
+      // Open menu
+      mobileMenu.classList.remove('translate-x-full');
+      mobileMenuOverlay.classList.remove('opacity-0', 'invisible');
+      document.body.style.overflow = 'hidden';
+      
+      // Animate hamburger to X
+      hamburgerLine1.style.transform = 'rotate(45deg) translate(5px, 5px)';
+      hamburgerLine2.style.opacity = '0';
+      hamburgerLine3.style.transform = 'rotate(-45deg) translate(7px, -6px)';
+    } else {
+      // Close menu
+      mobileMenu.classList.add('translate-x-full');
+      mobileMenuOverlay.classList.add('opacity-0', 'invisible');
+      document.body.style.overflow = '';
+      
+      // Reset hamburger
+      hamburgerLine1.style.transform = '';
+      hamburgerLine2.style.opacity = '1';
+      hamburgerLine3.style.transform = '';
+    }
+  }
+  
+  // Event listeners
+  mobileMenuButton?.addEventListener('click', toggleMobileMenu);
+  mobileMenuClose?.addEventListener('click', toggleMobileMenu);
+  mobileMenuOverlay?.addEventListener('click', toggleMobileMenu);
+  
+  // Close menu when clicking on navigation links
+  mobileMenuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (isMenuOpen) {
+        toggleMobileMenu();
+      }
+    });
+  });
+  
+  // Close menu on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isMenuOpen) {
+      toggleMobileMenu();
+    }
+  });
+  
+  // Close menu on window resize to desktop size
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 1024 && isMenuOpen) {
+      toggleMobileMenu();
+    }
+  });
+</script>
+
+<style>
+  /* Ensure mobile menu appears above other content */
+  #mobile-menu {
+    z-index: 45;
+  }
+  
+  #mobile-menu-overlay {
+    z-index: 40;
+  }
+  
+  /* Smooth scrolling for navigation */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Prevent background scroll when menu is open */
+  body.menu-open {
+    overflow: hidden;
+  }
+  
+  /* Mobile menu link hover effects */
+  .mobile-menu-link:hover {
+    background: linear-gradient(90deg, rgba(255, 100, 30, 0.1) 0%, transparent 100%);
+  }
+</style>

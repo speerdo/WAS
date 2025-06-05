@@ -6,6 +6,7 @@ export default {
       colors: {
         primary: '#6366f1',
         secondary: '#818cf8',
+        accent: '#ff641e',
         dark: '#0f172a',
       },
       fontFamily: {
@@ -14,4 +15,4 @@ export default {
     },
   },
   plugins: [],
-}
+};

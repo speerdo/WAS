@@ -1,0 +1,449 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const seoTitle = "Contact Us | Workflow Automation Strategies - Free Consultation Available";
+const seoDescription = "Get in touch for a free automation consultation. Contact form, direct email, and calendar booking available. Ready to streamline your business processes?";
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+  <Header />
+  
+  <!-- Hero Section -->
+  <section class="h-auto flex pt-24 max-w-5xl mx-auto items-center relative overflow-hidden">
+    <!-- Animated background elements -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-20 left-10 w-64 h-64 bg-accent/20 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-20 right-10 w-80 h-80 bg-primary/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div data-aos="fade-right">
+          <h1 class="text-4xl md:text-4xl font-bold mb-6">
+            Ready to <span class="text-primary">Streamline</span> Your <span class="text-accent">Business?</span>
+          </h1>
+          <p class="text-xl text-gray-400 mb-8">
+            Contact us for a free consultation or just to ask any questions. We're happy to help you discover how automation can transform your business operations.
+          </p>
+          <div class="flex gap-4">
+            <a 
+              href="#contact-form" 
+              class="bg-accent hover:bg-accent/80 text-white px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base md:text-md font-semibold transition-all transform hover:scale-105"
+            >
+              Send Message
+            </a>
+            <a 
+              href="#schedule" 
+              class="border border-primary text-primary hover:bg-primary hover:text-white px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base md:text-md font-semibold transition-all"
+            >
+              Schedule Call
+            </a>
+          </div>
+        </div>
+        <div data-aos="fade-left" class="relative">
+          <div class="bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl p-8 backdrop-blur-sm border border-primary/20 relative overflow-hidden">
+            <!-- Accent decorations -->
+            <div class="absolute top-0 right-0 w-20 h-1 bg-accent"></div>
+            <div class="absolute bottom-0 left-0 w-20 h-1 bg-accent"></div>
+            
+            <div class="text-center">
+              <div class="text-3xl mb-4">📞</div>
+              <h3 class="text-xl font-bold mb-4">Get In Touch</h3>
+              <div class="space-y-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-2 h-2 bg-accent rounded-full"></div>
+                  <span class="text-gray-300 text-sm">Free consultation available</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-2 h-2 bg-primary rounded-full"></div>
+                  <span class="text-gray-300 text-sm">Response within 24 hours</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-2 h-2 bg-secondary rounded-full"></div>
+                  <span class="text-gray-300 text-sm">No pressure, just helpful advice</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visual Divider -->
+  <div class="max-w-5xl mx-auto py-12">
+    <div class="flex items-center gap-4">
+      <div class="flex-1 h-px bg-gradient-to-r from-transparent via-accent to-transparent"></div>
+      <div class="flex-1 h-px bg-gradient-to-r from-transparent via-accent to-transparent"></div>
+    </div>
+  </div>
+
+  <!-- Contact Options -->
+  <section class="py-20 max-w-5xl mx-auto relative">
+    <!-- Background pattern -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute top-20 left-10 text-6xl text-accent">📧</div>
+      <div class="absolute bottom-40 right-20 text-6xl text-primary">📅</div>
+      <div class="absolute top-60 right-10 text-4xl text-secondary">💬</div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-6 py-2 mb-4">
+          <span class="text-accent font-semibold">Multiple Ways to Connect</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-4">Choose Your Preferred Contact Method</h2>
+        <p class="text-xl text-gray-400">We make it easy to get in touch however you prefer</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        {[
+          {
+            icon: "📧",
+            title: "Send a Message",
+            description: "Fill out our contact form and we'll get back to you within 24 hours",
+            action: "Contact Form",
+            href: "#contact-form",
+            color: "accent"
+          },
+          {
+            icon: "📅",
+            title: "Schedule a Call",
+            description: "Book a free 30-minute consultation directly on our calendar",
+            action: "Book Now",
+            href: "#schedule",
+            color: "primary"
+          },
+          {
+            icon: "✉️",
+            title: "Email Directly",
+            description: "Prefer email? Reach out to us directly for a quick response",
+            action: "Send Email",
+            href: "mailto:hello@workflowautomationstrategies.com",
+            color: "secondary"
+          }
+        ].map((option, index) => (
+          <div class={`bg-slate-800 rounded-xl p-8 text-center border-t-4 border-${option.color} hover:transform hover:scale-105 transition-all group`} data-aos="fade-up" data-aos-delay={index * 200}>
+            <div class={`w-16 h-16 bg-${option.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform`}>
+              <span class="text-2xl">{option.icon}</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3">{option.title}</h3>
+            <p class="text-gray-400 mb-6">{option.description}</p>
+            <a
+              href={option.href}
+              class={`bg-${option.color} hover:bg-${option.color}/80 text-white px-6 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 inline-block`}
+            >
+              {option.action}
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section id="contact-form" class="py-20 bg-slate-900 max-w-5xl mx-auto relative overflow-hidden">
+    <!-- Animated grid background -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 25px 25px, #ff641e 2px, transparent 0); background-size: 50px 50px;"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-6 py-2 mb-4">
+          <span class="text-accent font-semibold">Contact Form</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-4">Tell Us About Your Automation Needs</h2>
+        <p class="text-xl text-gray-400">The more details you provide, the better we can help you</p>
+      </div>
+      
+      <div class="max-w-2xl mx-auto">
+        <form 
+          class="space-y-6 bg-slate-800 p-8 rounded-2xl border border-accent/20" 
+          action="https://api.web3forms.com/submit" 
+          method="POST" 
+          aria-label="Contact form"
+          data-aos="fade-up"
+        >
+          <input type="hidden" name="access_key" value="96e6da2b-7be4-4320-9782-e3b525a20134" />
+          <input type="hidden" name="subject" value="Contact Page Inquiry - WAS" />
+          
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name *</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                placeholder="Your full name"
+                class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 focus:border-accent focus:ring-2 focus:ring-accent/50 focus:outline-none transition-colors text-white"
+              />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="your@email.com"
+                class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 focus:border-accent focus:ring-2 focus:ring-accent/50 focus:outline-none transition-colors text-white"
+              />
+            </div>
+          </div>
+          
+          <div>
+            <label for="company" class="block text-sm font-medium text-gray-300 mb-2">Company</label>
+            <input
+              type="text"
+              id="company"
+              name="company"
+              placeholder="Your company name (optional)"
+              class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 focus:border-accent focus:ring-2 focus:ring-accent/50 focus:outline-none transition-colors text-white"
+            />
+          </div>
+          
+          <div>
+            <label for="budget" class="block text-sm font-medium text-gray-300 mb-2">Budget Range</label>
+            <select
+              id="budget"
+              name="budget"
+              class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 focus:border-accent focus:ring-2 focus:ring-accent/50 focus:outline-none transition-colors text-white"
+            >
+              <option value="">Select your budget range (optional)</option>
+              <option value="under-1k">Under $1,000</option>
+              <option value="1k-2k">$1,000 - $2,000</option>
+              <option value="2k-5k">$2,000 - $5,000</option>
+              <option value="5k-plus">$5,000+</option>
+              <option value="retainer">Monthly retainer ($1k-2k/month)</option>
+              <option value="not-sure">Not sure yet</option>
+            </select>
+          </div>
+          
+          <div>
+            <label for="message" class="block text-sm font-medium text-gray-300 mb-2">What would you like to automate? *</label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows="6"
+              placeholder="Tell us about your current processes, what tasks take up your team's time, or what you'd like to automate. The more specific you are, the better we can help you."
+              class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 focus:border-accent focus:ring-2 focus:ring-accent/50 focus:outline-none resize-none transition-colors text-white"
+            ></textarea>
+          </div>
+          
+          <div class="text-center">
+            <button
+              type="submit"
+              class="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/80 hover:to-accent px-8 py-4 rounded-lg font-semibold transition-all transform hover:scale-105 text-white text-lg"
+            >
+              Send Message
+            </button>
+            <p class="text-gray-400 text-sm mt-4">We'll respond within 24 hours</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Schedule Section -->
+  <section id="schedule" class="py-20 max-w-5xl mx-auto relative">
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-6 py-2 mb-4">
+          <span class="text-primary font-semibold">Schedule a Call</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-4">Book Your Free Consultation</h2>
+        <p class="text-xl text-gray-400">30 minutes to discuss your automation needs - no pressure, just helpful advice</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div data-aos="fade-right">
+          <h3 class="text-2xl font-bold mb-6 text-primary">What to Expect on Our Call</h3>
+          <div class="space-y-4">
+            {[
+              {
+                icon: "🎯",
+                title: "Process Assessment",
+                description: "We'll discuss your current workflows and identify automation opportunities"
+              },
+              {
+                icon: "💡",
+                title: "Strategy Recommendations",
+                description: "Get specific suggestions for tools and approaches that fit your business"
+              },
+              {
+                icon: "📊",
+                title: "ROI Discussion",
+                description: "Understand the potential time and cost savings for your specific situation"
+              },
+              {
+                icon: "🗺️",
+                title: "Implementation Roadmap",
+                description: "If you're interested, we'll outline next steps and timeline for your project"
+              }
+            ].map((item, index) => (
+              <div class="flex gap-4 group" data-aos="fade-up" data-aos-delay={index * 100}>
+                <div class="bg-primary p-3 h-fit rounded-lg flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <span class="text-xl">{item.icon}</span>
+                </div>
+                <div>
+                  <h4 class="font-bold mb-2 text-primary">{item.title}</h4>
+                  <p class="text-gray-400">{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <div data-aos="fade-left">
+          <div class="bg-slate-800 rounded-xl p-8 border border-primary/20 relative overflow-hidden">
+            <!-- Calendly embed placeholder -->
+            <div class="text-center">
+              <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-2xl">📅</span>
+              </div>
+              <h4 class="text-xl font-bold mb-4">Schedule Your Call</h4>
+              <p class="text-gray-400 mb-6">Click below to see available time slots on our calendar</p>
+              
+              <!-- Calendly Button -->
+              <a
+                href="https://calendly.com/workflowautomationstrategies/free-consultation"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-primary hover:bg-primary/80 text-white px-8 py-4 rounded-lg font-semibold transition-all transform hover:scale-105 inline-block mb-4"
+              >
+                View Available Times
+              </a>
+              
+              <div class="text-sm text-gray-400 space-y-2">
+                <p>📞 30-minute video call</p>
+                <p>🆓 Completely free, no obligation</p>
+                <p>⏰ Available weekdays 9 AM - 5 PM EST</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Alternative contact info -->
+          <div class="mt-8 text-center" data-aos="fade-up">
+            <p class="text-gray-400 mb-4">Prefer a different time? Email us directly:</p>
+            <a 
+              href="mailto:hello@workflowautomationstrategies.com"
+              class="text-accent hover:text-accent/80 font-semibold transition-colors"
+            >
+              hello@workflowautomationstrategies.com
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Information -->
+  <section class="py-20 bg-slate-900 max-w-5xl mx-auto relative">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 bg-secondary/10 border border-secondary/20 rounded-full px-6 py-2 mb-4">
+          <span class="text-secondary font-semibold">Contact Information</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-4">Other Ways to Reach Us</h2>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Direct Contact -->
+        <div class="bg-slate-800 rounded-xl p-8 border-l-4 border-accent" data-aos="fade-up">
+          <h3 class="text-2xl font-bold mb-6 text-accent">Direct Contact</h3>
+          <div class="space-y-4">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 bg-accent/20 rounded-lg flex items-center justify-center">
+                <span class="text-accent">📧</span>
+              </div>
+              <div>
+                <p class="text-gray-400 text-sm">Email</p>
+                <a 
+                  href="mailto:hello@workflowautomationstrategies.com"
+                  class="text-white hover:text-accent transition-colors font-semibold"
+                >
+                  hello@workflowautomationstrategies.com
+                </a>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 bg-accent/20 rounded-lg flex items-center justify-center">
+                <span class="text-accent">🌍</span>
+              </div>
+              <div>
+                <p class="text-gray-400 text-sm">Service Area</p>
+                <p class="text-white">Remote-first, serving clients worldwide</p>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 bg-accent/20 rounded-lg flex items-center justify-center">
+                <span class="text-accent">⏰</span>
+              </div>
+              <div>
+                <p class="text-gray-400 text-sm">Response Time</p>
+                <p class="text-white">Within 24 hours (usually much faster)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Professional Links -->
+        <div class="bg-slate-800 rounded-xl p-8 border-l-4 border-primary" data-aos="fade-up">
+          <h3 class="text-2xl font-bold mb-6 text-primary">Connect With Us</h3>
+          <div class="space-y-4">
+            <a 
+              href="https://www.adamspeerweb.dev/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="flex items-center gap-4 p-3 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors group"
+            >
+              <div class="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                <span class="text-primary">👨‍💻</span>
+              </div>
+              <div>
+                <p class="text-white font-semibold">Founder's Portfolio</p>
+                <p class="text-gray-400 text-sm">Learn more about our technical background</p>
+              </div>
+            </a>
+            
+            <a 
+              href="https://linkedin.com/company/workflow-automation-strategies" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="flex items-center gap-4 p-3 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors group"
+            >
+              <div class="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                <span class="text-primary">💼</span>
+              </div>
+              <div>
+                <p class="text-white font-semibold">LinkedIn</p>
+                <p class="text-gray-400 text-sm">Follow us for automation tips and insights</p>
+              </div>
+            </a>
+            
+            <div class="p-3 rounded-lg bg-secondary/10">
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 bg-secondary/20 rounded-lg flex items-center justify-center">
+                  <span class="text-secondary">🔒</span>
+                </div>
+                <div>
+                  <p class="text-white font-semibold">Privacy Focused</p>
+                  <p class="text-gray-400 text-sm">Your information is secure and never shared</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout> 

@@ -1,0 +1,505 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const seoTitle = "Services | Workflow Automation Strategies - Complete Automation Solutions";
+const seoDescription = "Comprehensive workflow automation services including Zapier integrations, Make.com workflows, custom API development, AI integration, and data analytics automation.";
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+  <Header />
+  
+  <!-- Hero Section -->
+  <section class="h-auto flex pt-24 max-w-5xl mx-auto items-center relative overflow-hidden">
+    <!-- Animated background elements -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-20 right-10 w-64 h-64 bg-accent/20 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-20 left-10 w-80 h-80 bg-primary/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div data-aos="fade-right">
+          <h1 class="text-4xl md:text-4xl font-bold mb-6">
+            Complete <span class="text-primary">Automation Solutions</span> for Your <span class="text-accent">Business</span>
+          </h1>
+          <p class="text-xl text-gray-400 mb-8">
+            From simple integrations to complex custom workflows, we deliver automation solutions that scale with your business needs.
+          </p>
+          <div class="flex gap-4">
+            <a 
+              href="#contact" 
+              class="bg-accent hover:bg-accent/80 text-white px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base md:text-md font-semibold transition-all transform hover:scale-105"
+            >
+              Get Started
+            </a>
+            <a 
+              href="#services" 
+              class="border border-primary text-primary hover:bg-primary hover:text-white px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base md:text-md font-semibold transition-all"
+            >
+              View Services
+            </a>
+          </div>
+        </div>
+        <div data-aos="fade-left" class="relative">
+          <div class="bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl p-8 backdrop-blur-sm border border-primary/20 relative overflow-hidden">
+            <!-- Accent decorations -->
+            <div class="absolute top-0 left-0 w-16 h-1 bg-accent"></div>
+            <div class="absolute bottom-0 right-0 w-16 h-1 bg-accent"></div>
+            
+            <div class="grid grid-cols-2 gap-4">
+              <div class="text-center group hover:transform hover:scale-105 transition-transform">
+                <div class="text-3xl mb-2 group-hover:animate-bounce">🔧</div>
+                <p class="text-sm text-gray-300">Integration Development</p>
+              </div>
+              <div class="text-center group hover:transform hover:scale-105 transition-transform">
+                <div class="text-3xl mb-2 group-hover:animate-bounce">🤖</div>
+                <p class="text-sm text-gray-300">AI Integration</p>
+              </div>
+              <div class="text-center group hover:transform hover:scale-105 transition-transform">
+                <div class="text-3xl mb-2 group-hover:animate-bounce">📊</div>
+                <p class="text-sm text-gray-300">Data Analytics</p>
+              </div>
+              <div class="text-center group hover:transform hover:scale-105 transition-transform">
+                <div class="text-3xl mb-2 group-hover:animate-bounce">🎓</div>
+                <p class="text-sm text-gray-300">Training & Support</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visual Divider -->
+  <div class="max-w-5xl mx-auto py-12">
+    <div class="flex items-center gap-4">
+      <div class="flex-1 h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+      <div class="flex-1 h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+    </div>
+  </div>
+
+  <!-- Services Overview -->
+  <section id="services" class="py-20 max-w-5xl mx-auto relative">
+    <!-- Background pattern -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute top-20 left-10 text-6xl text-accent">⚙️</div>
+      <div class="absolute bottom-40 right-20 text-6xl text-primary">🔗</div>
+      <div class="absolute top-60 right-10 text-4xl text-secondary">⚡</div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-6 py-2 mb-4">
+          <span class="text-primary font-semibold">What We Offer</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-4">Our Services</h2>
+        <p class="text-xl text-gray-400">Comprehensive automation solutions tailored to your business needs</p>
+      </div>
+      
+      <div class="space-y-20">
+        <!-- Workflow Automation Consulting -->
+        <div class="grid md:grid-cols-2 gap-12 items-center" data-aos="fade-up">
+          <div class="relative">
+            <!-- Accent glow -->
+            <div class="absolute -top-10 -left-10 w-20 h-20 bg-accent/20 rounded-full blur-2xl"></div>
+            
+            <h3 class="text-3xl font-bold mb-6 text-primary">Workflow Automation Consulting</h3>
+            <p class="text-gray-300 mb-4">
+              We start by understanding your business inside and out. Our comprehensive needs assessment identifies bottlenecks, repetitive tasks, and automation opportunities that can transform your operations.
+            </p>
+            <p class="text-gray-300 mb-6">
+              Through detailed process mapping and analysis, we design efficient workflows tailored specifically to your business requirements, ensuring maximum ROI and minimal disruption to your existing operations.
+            </p>
+            <div class="space-y-3">
+              {[
+                "Comprehensive process evaluation and mapping",
+                "Automation opportunity identification",
+                "Custom workflow design and planning",
+                "ROI analysis and implementation roadmap"
+              ].map((item, index) => (
+                <div class="flex items-center gap-3 group" data-aos="fade-up" data-aos-delay={index * 100}>
+                  <div class="w-2 h-2 bg-accent rounded-full group-hover:scale-150 transition-transform"></div>
+                  <span class="text-gray-300">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="bg-slate-800 rounded-xl p-6 border-l-4 border-accent relative overflow-hidden">
+            <!-- Subtle glow effect -->
+            <div class="absolute -top-20 -right-20 w-40 h-40 bg-accent/10 rounded-full blur-2xl"></div>
+            
+            <h4 class="text-xl font-semibold mb-4 text-accent">Example Project</h4>
+            <div class="space-y-4">
+              <div class="border-l-4 border-secondary/50 pl-4">
+                <p class="text-gray-400 mb-2">
+                  <strong class="text-secondary">Challenge:</strong> A marketing agency was manually transferring lead data between their website forms, CRM, and email marketing platform.
+                </p>
+              </div>
+              <div class="border-l-4 border-primary/50 pl-4">
+                <p class="text-gray-400">
+                  <strong class="text-primary">Solution:</strong> Implemented automated workflow connecting website forms to CRM with intelligent lead scoring, automatic email sequences, and real-time notifications to sales team.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Integration Development -->
+        <div class="grid md:grid-cols-2 gap-12 items-center" data-aos="fade-up">
+          <div class="bg-slate-800 rounded-xl p-6 order-2 md:order-1 border-l-4 border-primary relative overflow-hidden">
+            <!-- Subtle glow effect -->
+            <div class="absolute -top-20 -left-20 w-40 h-40 bg-primary/10 rounded-full blur-2xl"></div>
+            
+            <h4 class="text-xl font-semibold mb-4 text-primary">Popular Integrations</h4>
+            <div class="space-y-3">
+              {[
+                { text: "CRM to Email Marketing (HubSpot → Mailchimp)", color: "accent" },
+                { text: "E-commerce to Inventory (Shopify → Google Sheets)", color: "primary" },
+                { text: "Support Tickets to Project Management (Zendesk → Asana)", color: "secondary" },
+                { text: "Social Media to Analytics (Instagram → Google Analytics)", color: "accent" }
+              ].map((integration, index) => (
+                <div class="flex items-center gap-3 group" data-aos="fade-up" data-aos-delay={index * 100}>
+                  <div class={`w-2 h-2 bg-${integration.color} rounded-full group-hover:scale-150 transition-transform`}></div>
+                  <span class="text-gray-400 text-sm">{integration.text}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="order-1 md:order-2 relative">
+            <!-- Accent glow -->
+            <div class="absolute -top-10 -right-10 w-20 h-20 bg-primary/20 rounded-full blur-2xl"></div>
+            
+            <h3 class="text-3xl font-bold mb-6 text-accent">Integration Development</h3>
+            <p class="text-gray-300 mb-4">
+              Connect your favorite apps and systems seamlessly. We specialize in creating robust integrations using leading automation platforms like Zapier, Make.com, and n8n.
+            </p>
+            <p class="text-gray-300 mb-6">
+              From simple two-app connections to complex multi-step workflows, we ensure your data flows smoothly between systems, eliminating manual data entry and reducing errors.
+            </p>
+            <div class="grid grid-cols-2 gap-4">
+              {[
+                { title: "Zapier Automation", desc: "User-friendly workflows for common business apps", color: "accent" },
+                { title: "Make.com Scenarios", desc: "Advanced visual automation with complex logic", color: "primary" },
+                { title: "n8n Workflows", desc: "Self-hosted solutions for maximum control", color: "secondary" },
+                { title: "Custom APIs", desc: "Bespoke integrations for unique requirements", color: "accent" }
+              ].map((tool, index) => (
+                <div class={`bg-slate-900 rounded-lg p-4 text-center border-t-2 border-${tool.color} hover:transform hover:scale-105 transition-all group`} data-aos="fade-up" data-aos-delay={index * 100}>
+                  <h5 class="font-semibold text-white mb-2">{tool.title}</h5>
+                  <p class="text-sm text-gray-400">{tool.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- Custom Automation Solutions -->
+        <div class="grid md:grid-cols-2 gap-12 items-center" data-aos="fade-up">
+          <div class="relative">
+            <!-- Accent glow -->
+            <div class="absolute -top-10 -left-10 w-20 h-20 bg-secondary/20 rounded-full blur-2xl"></div>
+            
+            <h3 class="text-3xl font-bold mb-6 text-secondary">Custom Automation Solutions</h3>
+            <p class="text-gray-300 mb-4">
+              When off-the-shelf solutions aren't enough, our full-stack development expertise comes into play. We create custom automation solutions that fit your exact requirements.
+            </p>
+            <p class="text-gray-300 mb-6">
+              From custom scripts and APIs to self-hosted automation platforms, we leverage advanced programming to solve complex business challenges that simple drag-and-drop tools can't handle.
+            </p>
+            <div class="space-y-4">
+              {[
+                { title: "Custom Scripts & APIs", desc: "Tailored solutions using Python, Node.js, and other technologies", color: "accent" },
+                { title: "Database Automation", desc: "Automated data processing, validation, and synchronization", color: "primary" },
+                { title: "Self-Hosted Solutions", desc: "Complete control with custom-deployed automation platforms", color: "secondary" }
+              ].map((solution, index) => (
+                <div class={`bg-slate-900 rounded-lg p-4 border-l-4 border-${solution.color} hover:transform hover:scale-105 transition-all group`} data-aos="fade-up" data-aos-delay={index * 100}>
+                  <h5 class="font-semibold text-white mb-2">{solution.title}</h5>
+                  <p class="text-sm text-gray-400">{solution.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="bg-slate-800 rounded-xl p-6 border-l-4 border-secondary relative overflow-hidden">
+            <!-- Subtle glow effect -->
+            <div class="absolute -top-20 -right-20 w-40 h-40 bg-secondary/10 rounded-full blur-2xl"></div>
+            
+            <h4 class="text-xl font-semibold mb-4 text-secondary">Custom Solution Example</h4>
+            <div class="space-y-4">
+              <div class="border-l-4 border-accent/50 pl-4">
+                <p class="text-gray-400 mb-2">
+                  <strong class="text-accent">Challenge:</strong> A law firm needed to automatically extract data from complex legal documents and update multiple case management systems.
+                </p>
+              </div>
+              <div class="border-l-4 border-primary/50 pl-4">
+                <p class="text-gray-400">
+                  <strong class="text-primary">Solution:</strong> Built custom Python scripts with OCR capabilities and API integrations to automatically process documents, extract key information, and update all relevant systems with proper error handling and audit trails.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visual Divider -->
+  <div class="max-w-5xl mx-auto py-12">
+    <div class="flex items-center gap-4">
+      <div class="flex-1 h-px bg-gradient-to-r from-transparent via-accent to-transparent"></div>
+      <div class="flex-1 h-px bg-gradient-to-r from-transparent via-accent to-transparent"></div>
+    </div>
+  </div>
+
+  <!-- AI Integration & Advanced Services -->
+  <section class="py-20 bg-slate-900 max-w-5xl mx-auto relative overflow-hidden">
+    <!-- Animated grid background -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 25px 25px, #6366f1 2px, transparent 0); background-size: 50px 50px;"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-6 py-2 mb-4">
+          <span class="text-accent font-semibold">Advanced Solutions</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-4">Advanced Automation Services</h2>
+        <p class="text-xl text-gray-400">Cutting-edge solutions for modern business challenges</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- AI Integration -->
+        <div class="bg-slate-800 rounded-xl p-8 border-t-4 border-accent hover:transform hover:scale-105 transition-all group" data-aos="fade-up">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center group-hover:rotate-12 transition-transform">
+              <span class="text-2xl">🤖</span>
+            </div>
+            <h3 class="text-2xl font-bold text-accent">AI Integration</h3>
+          </div>
+          <p class="text-gray-300 mb-6">
+            Supercharge your workflows with artificial intelligence. We integrate AI services like OpenAI, Claude, and other ML platforms to add intelligent decision-making to your automation.
+          </p>
+          <div class="space-y-4">
+            {[
+              { title: "Intelligent Data Extraction", desc: "Automatically extract and categorize information from documents, emails, and forms" },
+              { title: "Automated Decision Making", desc: "AI-powered routing and classification of support tickets, leads, and content" },
+              { title: "Chatbot Integration", desc: "Intelligent customer service and lead qualification bots within your workflows" },
+              { title: "Content Generation", desc: "Automated report generation, social media posts, and personalized communications" }
+            ].map((feature, index) => (
+              <div class="border-l-4 border-secondary pl-4 hover:border-accent transition-colors" data-aos="fade-up" data-aos-delay={index * 100}>
+                <h5 class="font-semibold text-secondary mb-1">{feature.title}</h5>
+                <p class="text-sm text-gray-400">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Data Analytics & Reporting -->
+        <div class="bg-slate-800 rounded-xl p-8 border-t-4 border-primary hover:transform hover:scale-105 transition-all group" data-aos="fade-up">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center group-hover:rotate-12 transition-transform">
+              <span class="text-2xl">📊</span>
+            </div>
+            <h3 class="text-2xl font-bold text-primary">Data Analytics & Reporting</h3>
+          </div>
+          <p class="text-gray-300 mb-6">
+            Transform raw data into actionable insights with automated reporting and analytics. We create dashboards and reports that update automatically, keeping you informed in real-time.
+          </p>
+          <div class="space-y-4">
+            {[
+              { title: "Automated Dashboards", desc: "Real-time dashboards using Google Data Studio, Tableau, or custom solutions" },
+              { title: "Data Pipeline Automation", desc: "Automated data collection, cleaning, and transformation workflows" },
+              { title: "Scheduled Reports", desc: "Automated report generation and distribution to stakeholders" },
+              { title: "Database Synchronization", desc: "Keep your data consistent across CRMs, spreadsheets, and analytics tools" }
+            ].map((feature, index) => (
+              <div class="border-l-4 border-secondary pl-4 hover:border-accent transition-colors" data-aos="fade-up" data-aos-delay={index * 100}>
+                <h5 class="font-semibold text-secondary mb-1">{feature.title}</h5>
+                <p class="text-sm text-gray-400">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Training & Support -->
+  <section class="py-20 max-w-5xl mx-auto relative">
+    <!-- Background pattern -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute top-10 right-20 text-6xl text-secondary">📚</div>
+      <div class="absolute bottom-20 left-20 text-6xl text-accent">🛠️</div>
+      <div class="absolute top-40 left-40 text-4xl text-primary">💪</div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 bg-secondary/10 border border-secondary/20 rounded-full px-6 py-2 mb-4">
+          <span class="text-secondary font-semibold">Support & Training</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-4">Training & Ongoing Support</h2>
+        <p class="text-xl text-gray-400">Ensuring your team can maintain and optimize your automation</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        {[
+          {
+            icon: "🎓",
+            title: "Team Training",
+            desc: "Comprehensive training sessions to ensure your team understands and can maintain your automated workflows.",
+            features: ["Hands-on automation platform training", "Best practices and troubleshooting", "Custom documentation and guides", "Q&A sessions and ongoing support"],
+            color: "accent"
+          },
+          {
+            icon: "📋",
+            title: "Documentation & Guides",
+            desc: "Detailed documentation for all your automation workflows, making future updates and maintenance simple.",
+            features: ["Step-by-step workflow documentation", "Troubleshooting guides", "Video tutorials and walkthroughs", "Process optimization recommendations"],
+            color: "primary"
+          },
+          {
+            icon: "🛠️",
+            title: "Ongoing Support",
+            desc: "Flexible support options to keep your automations running smoothly as your business grows and evolves.",
+            features: ["Monthly retainer support packages", "Emergency troubleshooting", "Workflow optimization and updates", "New integration development"],
+            color: "secondary"
+          }
+        ].map((service, index) => (
+          <div class={`bg-slate-800 rounded-xl p-6 text-center border-t-4 border-${service.color} hover:transform hover:scale-105 transition-all group`} data-aos="fade-up" data-aos-delay={index * 200}>
+            <div class={`w-16 h-16 bg-${service.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform`}>
+              <span class="text-2xl">{service.icon}</span>
+            </div>
+            <h3 class="text-xl font-bold mb-4">{service.title}</h3>
+            <p class="text-gray-400 mb-4">{service.desc}</p>
+            <ul class="text-sm text-gray-400 space-y-2">
+              {service.features.map((feature, featureIndex) => (
+                <li class="flex items-center gap-2">
+                  <div class={`w-1.5 h-1.5 bg-${service.color} rounded-full`}></div>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Overview -->
+  <section class="py-20 bg-slate-900 max-w-5xl mx-auto relative overflow-hidden">
+    <!-- Animated connecting lines -->
+    <div class="absolute inset-0 opacity-10">
+      <svg class="w-full h-full" viewBox="0 0 1200 400">
+        <path d="M200,200 Q400,100 600,200 Q800,300 1000,200" 
+              stroke="url(#gradient)" 
+              stroke-width="2" 
+              fill="none" 
+              stroke-dasharray="10,5"
+              class="animate-pulse">
+        </path>
+        <defs>
+          <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#6366f1;stop-opacity:0" />
+            <stop offset="50%" style="stop-color:#ff641e;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#818cf8;stop-opacity:0" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-6 py-2 mb-4">
+          <span class="text-primary font-semibold">Our Process</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-4">Our Process</h2>
+        <p class="text-xl text-gray-400">How we transform your business operations</p>
+      </div>
+      
+      <div class="grid md:grid-cols-4 gap-8">
+        {[
+          {
+            step: "01",
+            title: "Discovery & Analysis",
+            description: "We analyze your current processes and identify automation opportunities",
+            color: "accent"
+          },
+          {
+            step: "02", 
+            title: "Strategy & Planning",
+            description: "Design custom workflows and create an implementation roadmap",
+            color: "primary"
+          },
+          {
+            step: "03",
+            title: "Development & Testing",
+            description: "Build and thoroughly test your automation solutions",
+            color: "secondary"
+          },
+          {
+            step: "04",
+            title: "Launch & Support",
+            description: "Deploy your automations and provide ongoing training and support",
+            color: "accent"
+          }
+        ].map((process, index) => (
+          <div class="text-center group" data-aos="fade-up" data-aos-delay={index * 200}>
+            <div class={`w-16 h-16 bg-${process.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform relative`}>
+              <span class="text-xl font-bold text-white">{process.step}</span>
+              <div class={`absolute inset-0 bg-${process.color} rounded-full animate-ping opacity-20`}></div>
+            </div>
+            <h3 class="text-xl font-bold mb-3">{process.title}</h3>
+            <p class="text-gray-400">{process.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="contact" class="py-20 max-w-5xl mx-auto relative overflow-hidden">
+    <!-- Animated background -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-10 right-10 w-32 h-32 bg-accent/30 rounded-full blur-2xl animate-pulse"></div>
+      <div class="absolute bottom-10 left-10 w-40 h-40 bg-primary/30 rounded-full blur-2xl animate-pulse" style="animation-delay: 1s"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-6 py-2 mb-6">
+          <span class="text-accent font-semibold">Let's Get Started</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-6">Ready to Automate Your Business?</h2>
+        <p class="text-xl text-gray-400 mb-8">
+          Let's discuss which automation solutions will have the biggest impact on your business. 
+          Schedule a free consultation to get started.
+        </p>
+        <form class="max-w-md mx-auto space-y-4 bg-slate-800 p-8 rounded-2xl border border-accent/20" action="https://api.web3forms.com/submit" method="POST" aria-label="Contact form">
+          <input type="hidden" name="access_key" value="96e6da2b-7be4-4320-9782-e3b525a20134" />
+          <input type="hidden" name="subject" value="Services Page Inquiry - WAS" />
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+            class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 focus:border-accent focus:ring-2 focus:ring-accent/50 focus:outline-none transition-colors"
+          />
+          <textarea
+            name="message"
+            placeholder="Which services are you interested in?"
+            rows="4"
+            class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 focus:border-accent focus:ring-2 focus:ring-accent/50 focus:outline-none resize-none transition-colors"
+          ></textarea>
+          <button
+            type="submit"
+            class="w-full bg-gradient-to-r from-accent to-accent/80 hover:from-accent/80 hover:to-accent px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 text-white"
+          >
+            Schedule Consultation
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout> 

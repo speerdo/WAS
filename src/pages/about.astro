@@ -1,0 +1,330 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const seoTitle = "About Us | Workflow Automation Strategies - Transforming Business Through Technology";
+const seoDescription = "Learn about our founder's journey from fullstack development to workflow automation expertise. Discover how technical skills meet business efficiency solutions.";
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+  <Header />
+  
+  <!-- Hero Section -->
+  <section class="h-auto flex pt-24 max-w-5xl mx-auto items-center relative overflow-hidden">
+    <!-- Animated background elements -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-20 left-10 w-64 h-64 bg-accent/20 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-20 right-10 w-80 h-80 bg-primary/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div data-aos="fade-right">
+          <h1 class="text-4xl md:text-4xl font-bold mb-6">
+            Bridging <span class="text-primary">Technology</span> and Business <span class="text-accent">Efficiency</span>
+          </h1>
+          <p class="text-xl text-gray-400 mb-8">
+            From fullstack development to workflow automation - transforming businesses through the power of intelligent automation.
+          </p>
+          <div class="flex gap-4">
+            <a 
+              href="#contact" 
+              class="bg-accent hover:bg-accent/80 text-white px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base md:text-md font-semibold transition-all transform hover:scale-105"
+            >
+              Work With Us
+            </a>
+            <a 
+              href="#story" 
+              class="border border-primary text-primary hover:bg-primary hover:text-white px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base md:text-md font-semibold transition-all"
+            >
+              Our Story
+            </a>
+          </div>
+        </div>
+        <div data-aos="fade-left" class="relative">
+          <div class="bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl p-8 backdrop-blur-sm border border-primary/20 relative overflow-hidden">
+            <!-- Accent line decoration -->
+            <div class="absolute top-0 right-0 w-20 h-1 bg-accent"></div>
+            <div class="absolute bottom-0 left-0 w-20 h-1 bg-accent"></div>
+            
+            <div class="space-y-4">
+              <div class="flex items-center gap-3">
+                <div class="w-3 h-3 bg-accent rounded-full animate-pulse"></div>
+                <span class="text-gray-300">Fullstack Development Background</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-3 h-3 bg-secondary rounded-full animate-pulse" style="animation-delay: 0.5s"></div>
+                <span class="text-gray-300">Automation Expertise</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-3 h-3 bg-primary rounded-full animate-pulse" style="animation-delay: 1s"></div>
+                <span class="text-gray-300">Business Efficiency Focus</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visual Divider -->
+  <div class="max-w-5xl mx-auto py-12">
+    <div class="flex items-center gap-4">
+      <div class="flex-1 h-px bg-gradient-to-r from-transparent via-accent to-transparent"></div>
+      <div class="flex-1 h-px bg-gradient-to-r from-transparent via-accent to-transparent"></div>
+    </div>
+  </div>
+
+  <!-- Our Story Section -->
+  <section id="story" class="py-20 max-w-5xl mx-auto relative">
+    <!-- Background pattern -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute top-10 left-20 text-6xl text-accent">⚡</div>
+      <div class="absolute bottom-20 right-20 text-6xl text-primary">🔧</div>
+      <div class="absolute top-40 right-40 text-4xl text-secondary">💡</div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-6 py-2 mb-4">
+          <span class="text-accent font-semibold">Our Journey</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-4">Our Story</h2>
+        <p class="text-xl text-gray-400">From code to automation - a journey of innovation</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div data-aos="fade-right">
+          <div class="bg-slate-800 rounded-xl p-8 border-l-4 border-accent relative overflow-hidden">
+            <!-- Subtle accent glow -->
+            <div class="absolute -top-20 -right-20 w-40 h-40 bg-accent/10 rounded-full blur-2xl"></div>
+            
+            <h3 class="text-2xl font-bold mb-4 text-primary">Background & Mission</h3>
+            <p class="text-gray-300 mb-4">
+              With a strong foundation in fullstack development, <a href="https://www.adamspeerweb.dev/" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent/80 underline transition-colors font-semibold">our founder</a> brings years of software engineering experience to the world of workflow automation. This unique technical background enables us to see beyond surface-level solutions and create truly robust automation systems.
+            </p>
+            <p class="text-gray-300">
+              Our mission is clear: help businesses save time and reduce manual work through intelligent technology solutions. We believe that every repetitive task is an opportunity for innovation.
+            </p>
+          </div>
+        </div>
+        
+        <div data-aos="fade-left">
+          <div class="bg-slate-800 rounded-xl p-8 border-l-4 border-primary relative overflow-hidden">
+            <!-- Subtle primary glow -->
+            <div class="absolute -top-20 -left-20 w-40 h-40 bg-primary/10 rounded-full blur-2xl"></div>
+            
+            <h3 class="text-2xl font-bold mb-4 text-accent">Technical Approach</h3>
+            <p class="text-gray-300 mb-4">
+              What sets us apart is our hybrid approach - combining deep coding expertise with no-code and low-code automation tools. This allows us to tackle complex automation challenges that might be beyond the scope of traditional solutions.
+            </p>
+            <p class="text-gray-300">
+              Whether it's custom API integrations, complex data transformations, or sophisticated workflow orchestration, we have the technical depth to deliver solutions that truly scale with your business.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expertise Section -->
+  <section class="py-20 bg-slate-900 max-w-5xl mx-auto relative overflow-hidden">
+    <!-- Animated grid background -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 25px 25px, #ff641e 2px, transparent 0); background-size: 50px 50px;"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-6 py-2 mb-4">
+          <span class="text-primary font-semibold">Technical Skills</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-4">Our Expertise</h2>
+        <p class="text-xl text-gray-400">Technical skills that power your automation success</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        {[
+          {
+            icon: "💻",
+            title: "Fullstack Development",
+            description: "Deep expertise in modern web technologies, APIs, and database systems",
+            accent: "accent"
+          },
+          {
+            icon: "🔧",
+            title: "Automation Tools",
+            description: "Mastery of leading platforms like Zapier, Make, and custom integrations",
+            accent: "primary"
+          },
+          {
+            icon: "🤖",
+            title: "AI Integration",
+            description: "Leveraging artificial intelligence to create smarter, more efficient workflows",
+            accent: "secondary"
+          },
+          {
+            icon: "📊",
+            title: "Data Processing",
+            description: "Complex data transformations and analytics automation",
+            accent: "accent"
+          },
+          {
+            icon: "🔐",
+            title: "Security Focus",
+            description: "Enterprise-grade security practices in all automation solutions",
+            accent: "primary"
+          },
+          {
+            icon: "📈",
+            title: "Scalable Solutions",
+            description: "Building automation that grows with your business needs",
+            accent: "secondary"
+          }
+        ].map((skill, index) => (
+          <div class={`bg-slate-800 rounded-xl p-6 text-center border-t-4 border-${skill.accent} hover:transform hover:scale-105 transition-all duration-300 group`} data-aos="fade-up" data-aos-delay={index * 100}>
+            <div class="text-4xl mb-4 group-hover:animate-bounce">{skill.icon}</div>
+            <h3 class="text-xl font-bold mb-3">{skill.title}</h3>
+            <p class="text-gray-400">{skill.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy Section -->
+  <section class="py-20 max-w-5xl mx-auto relative">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 bg-secondary/10 border border-secondary/20 rounded-full px-6 py-2 mb-8">
+          <span class="text-secondary font-semibold">Our Philosophy</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-8">Our Philosophy</h2>
+        <div class="bg-gradient-to-r from-primary/10 via-accent/5 to-secondary/10 rounded-2xl p-8 backdrop-blur-sm border border-primary/20 relative overflow-hidden">
+          <!-- Decorative elements -->
+          <div class="absolute top-4 right-4 w-12 h-12 border-2 border-accent/30 rounded-full"></div>
+          <div class="absolute bottom-4 left-4 w-8 h-8 border-2 border-primary/30 rounded-full"></div>
+          
+          <blockquote class="text-xl text-gray-300 mb-6 italic relative">
+            <span class="text-6xl text-accent/20 absolute -top-4 -left-2">"</span>
+            <span class="relative z-10">
+              Every business has unique challenges, but the solution doesn't have to be complex. 
+              Great automation feels invisible - it just works, saving time and eliminating frustration 
+              while you focus on what matters most: growing your business.
+            </span>
+            <span class="text-6xl text-accent/20 absolute -bottom-8 -right-2">"</span>
+          </blockquote>
+          <div class="flex items-center justify-center gap-4">
+            <div class="w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-full flex items-center justify-center">
+              <span class="text-white font-bold text-lg">WAS</span>
+            </div>
+            <div class="text-left">
+              <p class="font-semibold">Workflow Automation Strategies</p>
+              <p class="text-gray-400 text-sm">Founder & Lead Automation Engineer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Commitment Section -->
+  <section class="py-20 bg-slate-900 max-w-5xl mx-auto relative">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-6 py-2 mb-4">
+          <span class="text-accent font-semibold">Why Choose Us</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-4">Our Commitment to Excellence</h2>
+        <p class="text-xl text-gray-400">Why businesses trust us with their automation needs</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-12">
+        {[
+          {
+            title: "Continuous Learning",
+            description: "Staying at the forefront of automation technology and best practices through active community involvement and ongoing education",
+            icon: "🎓",
+            color: "accent"
+          },
+          {
+            title: "Future-Ready Solutions",
+            description: "Building automation with tomorrow in mind - scalable, maintainable, and ready to evolve with your business",
+            icon: "🚀",
+            color: "primary"
+          },
+          {
+            title: "Personal Partnership",
+            description: "One-on-one consulting approach ensuring your unique needs are understood and addressed with precision",
+            icon: "🤝",
+            color: "secondary"
+          },
+          {
+            title: "Proven Results",
+            description: "Combining technical expertise with business acumen to deliver measurable improvements in efficiency and cost savings",
+            icon: "📈",
+            color: "accent"
+          }
+        ].map((commitment, index) => (
+          <div class="flex gap-4 group" data-aos="fade-up" data-aos-delay={index * 100}>
+            <div class={`bg-${commitment.color} p-3 h-fit rounded-lg flex-shrink-0 group-hover:scale-110 transition-transform`}>
+              <span class="text-2xl">{commitment.icon}</span>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold mb-2">{commitment.title}</h3>
+              <p class="text-gray-400">{commitment.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="contact" class="py-20 max-w-5xl mx-auto relative overflow-hidden">
+    <!-- Animated background -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-10 left-10 w-32 h-32 bg-accent/30 rounded-full blur-2xl animate-pulse"></div>
+      <div class="absolute bottom-10 right-10 w-40 h-40 bg-primary/30 rounded-full blur-2xl animate-pulse" style="animation-delay: 1s"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-6 py-2 mb-6">
+          <span class="text-accent font-semibold">Get Started</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-6">Ready to Start Your Automation Journey?</h2>
+        <p class="text-xl text-gray-400 mb-8">
+          Let's discuss how our technical expertise can transform your business processes. 
+          Get in touch for a personalized consultation.
+        </p>
+        <form class="max-w-md mx-auto space-y-4 bg-slate-800 p-8 rounded-2xl border border-accent/20" action="https://api.web3forms.com/submit" method="POST" aria-label="Contact form">
+          <input type="hidden" name="access_key" value="96e6da2b-7be4-4320-9782-e3b525a20134" />
+          <input type="hidden" name="subject" value="About Page Contact - WAS" />
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+            class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 focus:border-accent focus:ring-2 focus:ring-accent/50 focus:outline-none transition-colors"
+          />
+          <textarea
+            name="message"
+            placeholder="Tell us about your automation needs..."
+            rows="4"
+            class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 focus:border-accent focus:ring-2 focus:ring-accent/50 focus:outline-none resize-none transition-colors"
+          ></textarea>
+          <button
+            type="submit"
+            class="w-full bg-gradient-to-r from-accent to-accent/80 hover:from-accent/80 hover:to-accent px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 text-white"
+          >
+            Get in Touch
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout> 
